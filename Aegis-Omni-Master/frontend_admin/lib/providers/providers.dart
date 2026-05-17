@@ -204,8 +204,8 @@ class FirestoreOverrideService {
       batch.update(doc.reference, {
         'status': 'APPROVED',
         'text': 'MASS FLOOD EMERGENCY: Overridden by Admin',
-        'current_classification': {'action': 'APPROVED'},
-        'resource_dispatches': [
+        'ai_classification': {'action': 'APPROVED'},
+        'ai_dispatches': [
           {'unit_type': 'RESCUE_1122', 'eta': '5m'},
           {'unit_type': 'KWSB_DRAINAGE', 'eta': '12m'}
         ],
@@ -249,8 +249,8 @@ class FirestoreOverrideService {
         'longitude': 66.80 + rng.nextDouble() * 0.50,
         'precipitation': 15.0 + rng.nextDouble() * 85.0,
         'status': 'PENDING',
-        'current_classification': {},
-        'resource_dispatches': [],
+        'ai_classification': {},
+        'ai_dispatches': [],
         'timestamp': FieldValue.serverTimestamp(),
         '_test_burst': true,
       });

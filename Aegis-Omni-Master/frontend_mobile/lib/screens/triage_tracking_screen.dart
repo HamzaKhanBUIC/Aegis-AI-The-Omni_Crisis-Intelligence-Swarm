@@ -29,6 +29,12 @@ class TriageTrackingScreen extends StatelessWidget {
         final String action = (rawClassification is Map) 
             ? (rawClassification['action']?.toString() ?? 'PENDING') 
             : 'PENDING';
+        final String severity = (rawClassification is Map) 
+            ? (rawClassification['severity']?.toString().toUpperCase() ?? 'UNKNOWN') 
+            : 'UNKNOWN';
+        final String crisisType = (rawClassification is Map) 
+            ? (rawClassification['crisis_type']?.toString().toUpperCase() ?? 'UNKNOWN') 
+            : 'UNKNOWN';
             
         // Defensive parsing for List (Check both field names used by backend)
         final dynamic rawDispatches = data['ai_dispatches'] ?? data['resource_dispatches'];
@@ -36,7 +42,7 @@ class TriageTrackingScreen extends StatelessWidget {
 
         // Determine UI State based on Backend Signals
         // Rejection check MUST come before the 'PROCESSED' check
-        if (action == "REJECTED" || status == "REJECTED") {
+        if (action == "REJECTED" || status == "REJECTED" || severity == "NONE" || crisisType == "SPAM" || crisisType == "NO_CRISIS" || crisisType == "FALSE_ALARM") {
           return const _RejectedView();
         }
 
@@ -275,7 +281,7 @@ class _ApprovedView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "STATUS: APPROVED",
+                            "STATUS: VERIFIED & PASSED",
                             style: GoogleFonts.shareTechMono(
                               color: const Color(0xFF00C853),
                               fontWeight: FontWeight.bold,

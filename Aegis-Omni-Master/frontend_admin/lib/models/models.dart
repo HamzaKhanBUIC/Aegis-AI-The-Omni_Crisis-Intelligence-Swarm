@@ -34,10 +34,13 @@ class CrisisReport {
     final data = doc.data() as Map<String, dynamic>? ?? {};
     
     // Defensive parsing for nested maps and lists
-    final classification = data['current_classification'] as Map<String, dynamic>? ?? {};
-    final dispatchesRaw = data['resource_dispatches'] as List<dynamic>? ?? [];
+    final classification = data['ai_classification'] as Map<String, dynamic>? ?? data['current_classification'] as Map<String, dynamic>? ?? {};
+    final dispatchesRaw = data['ai_dispatches'] as List<dynamic>? ?? data['resource_dispatches'] as List<dynamic>? ?? [];
     final dispatches = dispatchesRaw
-        .map((e) => e as Map<String, dynamic>? ?? {})
+        .map((e) {
+          if (e is String) return {'agency': 'SYSTEM', 'action': e};
+          return e as Map<String, dynamic>? ?? {};
+        })
         .where((e) => e.isNotEmpty)
         .toList();
 
@@ -52,10 +55,10 @@ class CrisisReport {
 
     return CrisisReport(
       id: doc.id,
-      text: data['text'] ?? 'No description provided',
+      text: data['text'] ?? data['description'] ?? 'No description provided',
       latitude: (data['latitude'] ?? 0.0).toDouble(),
       longitude: (data['longitude'] ?? 0.0).toDouble(),
-      precipitation: (data['precipitation'] ?? 0.0).toDouble(),
+      precipitation: (data['precipitation'] ?? (data['sensor_data'] is Map ? data['sensor_data']['rain_mm'] : null) ?? 0.0).toDouble(),
       status: data['status'] ?? 'PENDING',
       currentClassification: classification,
       resourceDispatches: dispatches,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'citizen_home.dart';
 import 'dashboard.dart';
 import 'crisis_submission_screen.dart';
+import 'citizen_chatbot_screen.dart';
 
 class MainNavigationHolder extends StatefulWidget {
   const MainNavigationHolder({super.key});
@@ -19,6 +20,7 @@ class _MainNavigationHolderState extends State<MainNavigationHolder> {
     const CitizenHome(),             // Tab 0: Citizen Intel Portal
     const DashboardScreen(),         // Tab 1: Aegis-Omni Tactical Map Core
     const CrisisSubmissionScreen(),  // Tab 2: Signal Ingress Form
+    const CitizenChatbotScreen(),    // Tab 3: AI Assistant & Live Feed
   ];
 
   @override
@@ -40,6 +42,7 @@ class _MainNavigationHolderState extends State<MainNavigationHolder> {
         ),
         child: BottomNavigationBar(
           currentIndex: _currentSelectionIndex,
+          type: BottomNavigationBarType.fixed, // Added to prevent weird shifting with 4 items
           onTap: (index) {
             setState(() {
               _currentSelectionIndex = index;
@@ -51,27 +54,32 @@ class _MainNavigationHolderState extends State<MainNavigationHolder> {
           selectedLabelStyle: const TextStyle(
             fontFamily: 'monospace',
             fontWeight: FontWeight.bold,
-            fontSize: 11,
+            fontSize: 10,
           ),
           unselectedLabelStyle: const TextStyle(
             fontFamily: 'monospace',
-            fontSize: 11,
+            fontSize: 10,
           ),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.security, size: 22),
               activeIcon: Icon(Icons.security, color: Color(0xFF00E5FF)),
-              label: 'CITIZEN PORTAL',
+              label: 'PORTAL',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.radar, size: 22),
               activeIcon: Icon(Icons.radar, size: 22, color: Color(0xFF00E5FF)),
-              label: 'TACTICAL CORE',
+              label: 'CORE',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.add_alert, size: 22),
               activeIcon: Icon(Icons.add_alert, size: 22, color: Color(0xFF00E5FF)),
-              label: 'REPORT INCIDENT',
+              label: 'REPORT',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.smart_toy, size: 22),
+              activeIcon: Icon(Icons.smart_toy, size: 22, color: Color(0xFF00E5FF)),
+              label: 'ASSISTANT',
             ),
           ],
         ),

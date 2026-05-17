@@ -275,18 +275,27 @@ def start_firebase_listener():
                 # Filter for PENDING reports not yet processed
                 if data.get("status") == "PENDING" and not data.get("processed_by_ai"):
                     doc_id = doc.id
-                    incident_type = data.get("incident_type") or "Unknown Signal"
-                    description = data.get("description") or ""
+                    incident_type = data.get("incident_type") or "CITIZEN_REPORT"
+                    description = data.get("description") or data.get("text") or ""
                     input_text = f"{incident_type}: {description}"
                     
                     # Fetch telemetry with safe fallbacks
-                    sensor_data = data.get("sensor_data", {})
+                    sensor_data = data.get("sensor_data") or {}
+                    rain_mm = sensor_data.get("rain_mm")
+                    if rain_mm is None:
+                        rain_mm = data.get("precipitation")
+                    if rain_mm is None:
+                        rain_mm = 0.0
+                        
+                    humidity = sensor_data.get("humidity") or data.get("humidity") or 50.0
+                    congestion = sensor_data.get("congestion") or data.get("congestion") or 10
+                    
                     weather = WeatherTelemetry(
-                        precipitation=sensor_data.get("rain_mm", 0.0),
-                        humidity=sensor_data.get("humidity", 50.0)
+                        precipitation=float(rain_mm),
+                        humidity=float(humidity)
                     )
                     traffic = TrafficTelemetry(
-                        congestion_level=sensor_data.get("congestion", 10)
+                        congestion_level=int(congestion)
                     )
                     
                     logger.info(f"🔥 Firebase Signal Detected: {doc_id}")

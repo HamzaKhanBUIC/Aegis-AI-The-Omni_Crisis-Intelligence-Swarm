@@ -414,3 +414,1671 @@ Social reports claim 'CATASTROPHIC_FLOOD' while hardware sensor 'rain_mm' is 0.0
 [PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
 [RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
 --- END SESSION ---
+
+--- SESSION: MOCK-FIRE-001 | 2026-05-17T15:53:05.456434+00:00 ---
+[2026-05-17T15:52:57.728574+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-FIRE-001
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.9,
+  "agent_reasoning": "Fused signal indicates a reported structural fire at Korangi …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-TRAFFIC-002 | 2026-05-17T15:53:10.835552+00:00 ---
+[2026-05-17T15:53:03.089226+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-TRAFFIC-002
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.9,
+  "agent_reasoning": "Fused data indicates extreme traffic congestion (97%) on S…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-CURVEBALL-003 | 2026-05-17T15:53:20.244522+00:00 ---
+[2026-05-17T15:53:08.401516+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-CURVEBALL-003
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "CATASTROPHIC",
+  "affected_population": 100000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High traffic congestion (88%) and social media report of…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='CATASTROPHIC' | affected_population=100000 | confidence_score=0.95.
+[VALIDATION_NODE] Status: ANOMALY_DETECTED | Justification: Social media reports claim catastrophic flooding with 20 feet high water, but weather station telemetry registers 0.0mm of active precipitation, making a natural flash flood physically impossible. Cross-referencing municipal infrastructure telemetry reveals a drop in water main pressure, indicating a major localized water main blowout/burst pipe.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: MOCK-QUAKE-004 | 2026-05-17T15:53:23.345898+00:00 ---
+[2026-05-17T15:53:13.701520+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-QUAKE-004
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "SEISMIC_EVENT",
+  "severity": "CATASTROPHIC",
+  "affected_population": 10000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "Social media report explicitly mentions a seismic ev…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='SEISMIC_EVENT' | severity='CATASTROPHIC' | affected_population=10000 | confidence_score=0.95.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 8 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for SEISMIC_EVENT with severity level CATASTROPHIC.
+--- END SESSION ---
+
+--- SESSION: DxQfn9gObqKF0hKu2Ve4 | 2026-05-17T15:54:49.079287+00:00 ---
+[2026-05-17T15:54:45.240498+00:00] [INGEST] Signal received from gateway boundary. Trace ID: DxQfn9gObqKF0hKu2Ve4
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Initial signal lacks concrete information, but low traffic congestion an…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: wYcOiGjrINrMO2GnKFu0 | 2026-05-17T15:54:50.438920+00:00 ---
+[2026-05-17T15:54:45.242007+00:00] [INGEST] Signal received from gateway boundary. Trace ID: wYcOiGjrINrMO2GnKFu0
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 5zmz8dhwbJ0Rhn0djeFl | 2026-05-17T15:54:50.753072+00:00 ---
+[2026-05-17T15:54:45.238986+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 5zmz8dhwbJ0Rhn0djeFl
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Incoming signal lacks specific crisis indicators, but traffic congestion…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: CslvZJGu823jA8W70QdL | 2026-05-17T15:54:51.795896+00:00 ---
+[2026-05-17T15:54:45.239992+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CslvZJGu823jA8W70QdL
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Incoming signal lacks specific crisis indicators, but traffic congestion…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 1cerqH3juwOq3CeD0S6I | 2026-05-17T15:54:52.125674+00:00 ---
+[2026-05-17T15:54:45.237476+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 1cerqH3juwOq3CeD0S6I
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "No specific crisis indicators detected in social media, zero rainfall, a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: NBFj5cXOB7oObvpWICex | 2026-05-17T15:54:59.706471+00:00 ---
+[2026-05-17T15:54:56.076272+00:00] [INGEST] Signal received from gateway boundary. Trace ID: NBFj5cXOB7oObvpWICex
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Initial signal lacks concrete information, but low traffic congestion an…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: bHVhvxfSMrL1yWhrEIrE | 2026-05-17T15:55:00.050173+00:00 ---
+[2026-05-17T15:54:56.078283+00:00] [INGEST] Signal received from gateway boundary. Trace ID: bHVhvxfSMrL1yWhrEIrE
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: DUFz1NjF30djufnKTE41 | 2026-05-17T15:55:01.080298+00:00 ---
+[2026-05-17T15:54:56.074761+00:00] [INGEST] Signal received from gateway boundary. Trace ID: DUFz1NjF30djufnKTE41
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Incoming signal lacks specific crisis indicators, but traffic congestion…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: m6u4tr2yOugVMZZTfGXL | 2026-05-17T15:55:01.404093+00:00 ---
+[2026-05-17T15:54:56.079289+00:00] [INGEST] Signal received from gateway boundary. Trace ID: m6u4tr2yOugVMZZTfGXL
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Incoming signal lacks specific crisis indicators, but traffic congestion…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: WDHcJ1arBmrhK06BI7k6 | 2026-05-17T15:55:02.426761+00:00 ---
+[2026-05-17T15:54:56.077277+00:00] [INGEST] Signal received from gateway boundary. Trace ID: WDHcJ1arBmrhK06BI7k6
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Incoming signal lacks specific crisis indicators, but traffic congestion…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: MecFELQkFffexsSH4b7S | 2026-05-17T15:55:02.787594+00:00 ---
+[2026-05-17T15:54:57.327978+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MecFELQkFffexsSH4b7S
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: sn31oW9lVkicYiFlzLHy | 2026-05-17T15:55:03.778238+00:00 ---
+[2026-05-17T15:54:57.330985+00:00] [INGEST] Signal received from gateway boundary. Trace ID: sn31oW9lVkicYiFlzLHy
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Bxnj4vSEk9XXI2D8AdpA | 2026-05-17T15:55:04.137010+00:00 ---
+[2026-05-17T15:54:57.326472+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Bxnj4vSEk9XXI2D8AdpA
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: SNhDVEuvqwX6ImJkXDqj | 2026-05-17T15:55:05.130491+00:00 ---
+[2026-05-17T15:54:57.328985+00:00] [INGEST] Signal received from gateway boundary. Trace ID: SNhDVEuvqwX6ImJkXDqj
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type; no rain or traffic congestio…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: hHpi0xCZIHkq0Gyi9QU8 | 2026-05-17T15:55:05.484752+00:00 ---
+[2026-05-17T15:54:57.329984+00:00] [INGEST] Signal received from gateway boundary. Trace ID: hHpi0xCZIHkq0Gyi9QU8
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: lMVr3QH80u7OTJj6QY2p | 2026-05-17T15:59:58.247927+00:00 ---
+[2026-05-17T15:59:55.043534+00:00] [INGEST] Signal received from gateway boundary. Trace ID: lMVr3QH80u7OTJj6QY2p
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type, but low traffic congestion a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: qAlHHQBfNEVyqdMXLPV9 | 2026-05-17T16:01:22.343310+00:00 ---
+[2026-05-17T16:01:18.704907+00:00] [INGEST] Signal received from gateway boundary. Trace ID: qAlHHQBfNEVyqdMXLPV9
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "UNKNOWN",
+  "severity": "LOW",
+  "affected_population": 0,
+  "confidence_score": 0.2,
+  "agent_reasoning": "Insufficient data to determine crisis type; low traffic congestion and n…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.20.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 3OzNl7vhRaGfcdmZ0w0Q | 2026-05-17T18:02:10.553438+00:00 ---
+[2026-05-17T18:02:10.140815+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 3OzNl7vhRaGfcdmZ0w0Q
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ConnectError: [Errno 11002] getaddrinfo failed. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-E09D47 | 2026-05-17T18:02:11.957773+00:00 ---
+[2026-05-17T18:02:10.143816+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-E09D47
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ConnectError: [Errno 11002] getaddrinfo failed. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: urVvOpMR3X33TAV118OM | 2026-05-17T18:02:12.282409+00:00 ---
+[2026-05-17T18:02:10.144813+00:00] [INGEST] Signal received from gateway boundary. Trace ID: urVvOpMR3X33TAV118OM
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ConnectError: [Errno 11002] getaddrinfo failed. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-9B1F98 | 2026-05-17T18:04:11.745847+00:00 ---
+[2026-05-17T18:04:02.450264+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-9B1F98
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates heavy water accumulation on main road, caus…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 7 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: YhWOxHkiKAxldtNhthjE | 2026-05-17T18:18:00.346242+00:00 ---
+[2026-05-17T18:17:51.064899+00:00] [INGEST] Signal received from gateway boundary. Trace ID: YhWOxHkiKAxldtNhthjE
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Citizen report of fire in DHA, moderate rain and traffic cong…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: 14Gt6Phe7pvuhb4sFctF | 2026-05-17T18:24:18.115476+00:00 ---
+[2026-05-17T18:24:10.892366+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 14Gt6Phe7pvuhb4sFctF
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Citizen report of fire at DHA, moderate rain and traffic cong…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: gCVwqb5PyhJfLS0vbfqZ | 2026-05-17T18:28:26.354688+00:00 ---
+[2026-05-17T18:28:19.580678+00:00] [INGEST] Signal received from gateway boundary. Trace ID: gCVwqb5PyhJfLS0vbfqZ
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "MEDIUM",
+  "affected_population": 1000,
+  "confidence_score": 0.7,
+  "agent_reasoning": "Traffic congestion signal exceeds 7, indicating severe tr…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='MEDIUM' | affected_population=1000 | confidence_score=0.70.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level MEDIUM.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-A90E95 | 2026-05-17T18:42:37.034323+00:00 ---
+[2026-05-17T18:42:27.424192+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-A90E95
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "SEISMIC_EVENT",
+  "severity": "CATASTROPHIC",
+  "affected_population": 500000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High-magnitude seismic event reported via social me…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='SEISMIC_EVENT' | severity='CATASTROPHIC' | affected_population=500000 | confidence_score=0.95.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 7 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for SEISMIC_EVENT with severity level CATASTROPHIC.
+--- END SESSION ---
+
+--- SESSION: NgW2PaiQB7kHGLv3bFp2 | 2026-05-17T18:44:39.676933+00:00 ---
+[2026-05-17T18:44:31.598756+00:00] [INGEST] Signal received from gateway boundary. Trace ID: NgW2PaiQB7kHGLv3bFp2
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High traffic congestion signal (10) combined with citizen …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: ZDd3VeBCDPgGQoKcHgNm | 2026-05-17T18:44:40.156383+00:00 ---
+[2026-05-17T18:44:31.601776+00:00] [INGEST] Signal received from gateway boundary. Trace ID: ZDd3VeBCDPgGQoKcHgNm
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High traffic congestion signal (10) combined with citizen …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: OkGOORYCYAoBZX7qtvr1 | 2026-05-17T18:44:41.036847+00:00 ---
+[2026-05-17T18:44:31.599761+00:00] [INGEST] Signal received from gateway boundary. Trace ID: OkGOORYCYAoBZX7qtvr1
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "INFRASTRUCTURE_BURST_PIPE",
+  "severity": "HIGH",
+  "affected_population": 5000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates a reported water main burst…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='HIGH' | affected_population=5000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level HIGH.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: aNpGluZCMSV28wb0sct4 | 2026-05-17T18:44:41.534331+00:00 ---
+[2026-05-17T18:44:31.603291+00:00] [INGEST] Signal received from gateway boundary. Trace ID: aNpGluZCMSV28wb0sct4
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: PmLLaSYVI69iOlR37A64 | 2026-05-17T18:44:42.408443+00:00 ---
+[2026-05-17T18:44:31.601271+00:00] [INGEST] Signal received from gateway boundary. Trace ID: PmLLaSYVI69iOlR37A64
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 5000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Citizen report of severe urban flooding in Saddar, corroborated by …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=5000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: WH0oqgFhgwG28vZxFcTX | 2026-05-17T18:48:47.745170+00:00 ---
+[2026-05-17T18:48:36.143336+00:00] [INGEST] Signal received from gateway boundary. Trace ID: WH0oqgFhgwG28vZxFcTX
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "MEDIUM",
+  "affected_population": 1000,
+  "confidence_score": 0.7,
+  "agent_reasoning": "Citizen report of flooding in DHA, moderate rain intensity (12.5m…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='MEDIUM' | affected_population=1000 | confidence_score=0.70.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level MEDIUM.
+--- END SESSION ---
+
+--- SESSION: LROyGDR0pXR3qexMxNRP | 2026-05-17T18:54:22.210579+00:00 ---
+[2026-05-17T18:54:14.887493+00:00] [INGEST] Signal received from gateway boundary. Trace ID: LROyGDR0pXR3qexMxNRP
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 5000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Citizen report of fire in DHA area, corroborated by moderate…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=5000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: rHhx7pWmhLNcGYe0lCY8 | 2026-05-17T18:58:55.259068+00:00 ---
+[2026-05-17T18:58:47.467455+00:00] [INGEST] Signal received from gateway boundary. Trace ID: rHhx7pWmhLNcGYe0lCY8
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "INFRASTRUCTURE_BURST_PIPE",
+  "severity": "MEDIUM",
+  "affected_population": 500,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates a reported water main burs…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='MEDIUM' | affected_population=500 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: mYcWGpJNQgFrS5eTDNpg | 2026-05-17T18:58:55.890664+00:00 ---
+[2026-05-17T18:58:47.466436+00:00] [INGEST] Signal received from gateway boundary. Trace ID: mYcWGpJNQgFrS5eTDNpg
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High traffic congestion signal (10) combined with citizen …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: izeBA1SnXtMRbTiHzpte | 2026-05-17T18:58:56.638299+00:00 ---
+[2026-05-17T18:58:47.465404+00:00] [INGEST] Signal received from gateway boundary. Trace ID: izeBA1SnXtMRbTiHzpte
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: vUbf5ZsS6CECLhRsQ7p9 | 2026-05-17T18:58:57.262277+00:00 ---
+[2026-05-17T18:58:47.469480+00:00] [INGEST] Signal received from gateway boundary. Trace ID: vUbf5ZsS6CECLhRsQ7p9
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: M8Hj90Jx4RzH9W72fa3E | 2026-05-17T18:58:58.003433+00:00 ---
+[2026-05-17T18:58:47.463380+00:00] [INGEST] Signal received from gateway boundary. Trace ID: M8Hj90Jx4RzH9W72fa3E
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High rain intensity (54.96mm) and severe urban flooding report in …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 7 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: UrPaJGTjJesKswUNKUu4 | 2026-05-17T18:59:02.098205+00:00 ---
+[2026-05-17T18:59:01.786274+00:00] [INGEST] Signal received from gateway boundary. Trace ID: UrPaJGTjJesKswUNKUu4
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a0ff6-24ba721e61510b660607d33b;c5d45a73-42ee-4b57-a042-cfe8688150f0)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 1V7QZGdXJ4g0bZq6x2ZF | 2026-05-17T18:59:02.413312+00:00 ---
+[2026-05-17T18:59:01.781734+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 1V7QZGdXJ4g0bZq6x2ZF
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a0ff6-58c0d536779233b25f1af355;9079bb5f-c970-4c37-889c-4435c421ac70)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: I1sI1sDAbbojDDzfFfKj | 2026-05-17T18:59:03.462451+00:00 ---
+[2026-05-17T18:59:01.784250+00:00] [INGEST] Signal received from gateway boundary. Trace ID: I1sI1sDAbbojDDzfFfKj
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a0ff6-7ce055613043fed237125959;9e53d308-1ffd-410b-a063-9a7dbbc73d22)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Po2ePKOZ8a35heg8K17k | 2026-05-17T18:59:03.828170+00:00 ---
+[2026-05-17T18:59:01.785257+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Po2ePKOZ8a35heg8K17k
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a0ff6-4fb034c22844cb4b1e651a68;eb7d0dc3-f305-45e0-9231-6e318a6a86c9)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 8U8aPQqflvIQVmDRdIoW | 2026-05-17T18:59:08.884839+00:00 ---
+[2026-05-17T18:59:01.782733+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 8U8aPQqflvIQVmDRdIoW
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-E3F59E | 2026-05-17T18:59:46.228109+00:00 ---
+[2026-05-17T18:59:37.450672+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-E3F59E
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "SEISMIC_EVENT",
+  "severity": "CATASTROPHIC",
+  "affected_population": 1000000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High-magnitude seismic event reported via social m…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='SEISMIC_EVENT' | severity='CATASTROPHIC' | affected_population=1000000 | confidence_score=0.95.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 8 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for SEISMIC_EVENT with severity level CATASTROPHIC.
+--- END SESSION ---
+
+--- SESSION: Ld95tx6ZMHkTX72I7ayd | 2026-05-17T19:02:49.419383+00:00 ---
+[2026-05-17T19:02:40.063108+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Ld95tx6ZMHkTX72I7ayd
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: mr463Ln16bPpoOMfmUmm | 2026-05-17T19:02:49.857785+00:00 ---
+[2026-05-17T19:02:40.065122+00:00] [INGEST] Signal received from gateway boundary. Trace ID: mr463Ln16bPpoOMfmUmm
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High traffic congestion metric (10) and citizen report of …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: Djo2HsPXtqyLRjVsS5rB | 2026-05-17T19:02:50.853764+00:00 ---
+[2026-05-17T19:02:40.057433+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Djo2HsPXtqyLRjVsS5rB
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: SoVgf7aUkQV284hFIYpa | 2026-05-17T19:02:51.823079+00:00 ---
+[2026-05-17T19:02:40.064115+00:00] [INGEST] Signal received from gateway boundary. Trace ID: SoVgf7aUkQV284hFIYpa
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: ES6QxEo5grbQuy7Av28M | 2026-05-17T19:02:53.690918+00:00 ---
+[2026-05-17T19:02:40.062088+00:00] [INGEST] Signal received from gateway boundary. Trace ID: ES6QxEo5grbQuy7Av28M
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High rain intensity (74.62mm) and severe urban flooding report in …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 8 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: lJm8kLn8vcgWHgoTRJ5y | 2026-05-17T19:02:56.179061+00:00 ---
+[2026-05-17T19:02:55.915593+00:00] [INGEST] Signal received from gateway boundary. Trace ID: lJm8kLn8vcgWHgoTRJ5y
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e0-3e157cee06b7b2bb57fcd09c;016131d4-7bdf-40fb-822a-2e4a244cecb6)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: qemhsh3sAXMjg7pMjXow | 2026-05-17T19:02:56.487139+00:00 ---
+[2026-05-17T19:02:55.917625+00:00] [INGEST] Signal received from gateway boundary. Trace ID: qemhsh3sAXMjg7pMjXow
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e0-19a5d4092a3bf78217d50a93;a75b4b28-4281-4612-9bda-d3f66e772118)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: tXiMbvQSGsPT4EzqZni4 | 2026-05-17T19:02:57.529483+00:00 ---
+[2026-05-17T19:02:55.918632+00:00] [INGEST] Signal received from gateway boundary. Trace ID: tXiMbvQSGsPT4EzqZni4
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e0-78b1efb159604f8512f238c5;4f986132-7ba2-4e60-9876-b18eaaf67679)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: YyHWthWilxcdQWG9l7Dd | 2026-05-17T19:02:57.838669+00:00 ---
+[2026-05-17T19:02:55.914075+00:00] [INGEST] Signal received from gateway boundary. Trace ID: YyHWthWilxcdQWG9l7Dd
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e0-760139be69c6ffef0cdbf08f;f9741673-838d-4b17-a923-2e5d65c20259)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: isA742LZr0vuFS5PTGJz | 2026-05-17T19:03:00.218852+00:00 ---
+[2026-05-17T19:02:55.914584+00:00] [INGEST] Signal received from gateway boundary. Trace ID: isA742LZr0vuFS5PTGJz
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "INFRASTRUCTURE_BURST_PIPE",
+  "severity": "MEDIUM",
+  "affected_population": 5000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates a reported water main bur…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='MEDIUM' | affected_population=5000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Warning: Prediction engine error - Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e4-2065a79617fd076c2677b476;4a32af4d-4e43-419b-b6e0-3ab992370a2a)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: 3P7FT830fxBymPWm6Kc8 | 2026-05-17T19:03:01.093642+00:00 ---
+[2026-05-17T19:03:00.776058+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 3P7FT830fxBymPWm6Kc8
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e4-0552393b646e6e5943aa1c3c;f1f999e5-7cc6-4dae-b773-0cfbe50a702f)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 7PGqPOFRUalU5SUnUfYu | 2026-05-17T19:03:01.570701+00:00 ---
+[2026-05-17T19:03:00.777062+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 7PGqPOFRUalU5SUnUfYu
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e4-59b8271727f969bd09d058b9;6c41d6e0-54ea-47b2-9237-c611e0349154)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 9C8Ks3vh6SnpHn2qyIX2 | 2026-05-17T19:03:02.459663+00:00 ---
+[2026-05-17T19:03:00.778576+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 9C8Ks3vh6SnpHn2qyIX2
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e4-13c6f3707d1ac30a16152ec6;1d49c9b9-ffa2-4113-945a-704838da30d5)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 1mAsqDAdzUca5EEKN1wp | 2026-05-17T19:03:02.925541+00:00 ---
+[2026-05-17T19:03:00.773545+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 1mAsqDAdzUca5EEKN1wp
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e4-2521dd601224c3bc4d810b81;6e8beb7c-addc-4a71-a8cc-34dba1f83f03)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 9uUCtNYptIIr4yCSTd8I | 2026-05-17T19:03:03.816798+00:00 ---
+[2026-05-17T19:03:00.779083+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 9uUCtNYptIIr4yCSTd8I
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-4ad53d4d4995db9f3fbfce1a;26925468-5f79-419c-aa2f-1277ccd29f61)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 25g3xdSoRNB5nCtHfA9c | 2026-05-17T19:03:04.269940+00:00 ---
+[2026-05-17T19:03:00.774045+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 25g3xdSoRNB5nCtHfA9c
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[CIRCUIT_BREAKER_ENGAGED] Hugging Face API timeout/429 detected. Defaulting to deterministic local logic.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='MEDIUM' | affected_population=500 | confidence_score=0.99.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Warning: Prediction engine error - Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-74e9502e5c55e1f16f4ed873;ef40904c-3870-45de-a800-5e1901bb2f46)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: BydXgWBGybxILx4hdc6L | 2026-05-17T19:03:05.171266+00:00 ---
+[2026-05-17T19:03:00.781754+00:00] [INGEST] Signal received from gateway boundary. Trace ID: BydXgWBGybxILx4hdc6L
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-41fc619b5e5a11e73175f810;b79e99e8-6e99-4a14-872b-a0a1344ea560)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: FEa7EXEblW7gXdltfz3Q | 2026-05-17T19:03:05.604900+00:00 ---
+[2026-05-17T19:03:00.785771+00:00] [INGEST] Signal received from gateway boundary. Trace ID: FEa7EXEblW7gXdltfz3Q
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-37d163856da44e435c1caafe;bd5186d7-87c0-4d3b-8b39-1e56453d985e)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: EB3A2jp435D3B4eIKUyL | 2026-05-17T19:03:06.517470+00:00 ---
+[2026-05-17T19:03:00.784269+00:00] [INGEST] Signal received from gateway boundary. Trace ID: EB3A2jp435D3B4eIKUyL
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-4b0f4c2e59c0d1043f302657;cc344ad2-9ae2-481a-959c-ce3643674ada)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Qdf67xcNVc2EYGNhxXb9 | 2026-05-17T19:03:06.952999+00:00 ---
+[2026-05-17T19:03:00.790821+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Qdf67xcNVc2EYGNhxXb9
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-656ac70f3cfd47705a188261;042d831a-99d4-486e-ac6b-95889bf955d8)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: NslnnMrTj4GHWF5cOBDG | 2026-05-17T19:03:07.867050+00:00 ---
+[2026-05-17T19:03:00.788788+00:00] [INGEST] Signal received from gateway boundary. Trace ID: NslnnMrTj4GHWF5cOBDG
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-12d31e642a9ec8b371c91d99;b1f4ec8c-6349-4706-949e-b283dfc5f1f3)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: kYIGtLpHebbq3K7m0inF | 2026-05-17T19:03:08.288103+00:00 ---
+[2026-05-17T19:03:00.800358+00:00] [INGEST] Signal received from gateway boundary. Trace ID: kYIGtLpHebbq3K7m0inF
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-511b478564c6d058752ffb40;ed955930-ad8e-40f6-969f-b17849aacf6e)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: f11dBF7Nt4QLU4PVyYrO | 2026-05-17T19:03:09.218458+00:00 ---
+[2026-05-17T19:03:00.798846+00:00] [INGEST] Signal received from gateway boundary. Trace ID: f11dBF7Nt4QLU4PVyYrO
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-4986cd706a3a78c11c082d43;7aaa7ad0-2b7b-4da1-9374-0af110f39cbf)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: XSPBUiHhqrfOJ3b5g7my | 2026-05-17T19:03:09.625938+00:00 ---
+[2026-05-17T19:03:00.796846+00:00] [INGEST] Signal received from gateway boundary. Trace ID: XSPBUiHhqrfOJ3b5g7my
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-29208f50751c7cef5645806a;bf104e2c-64d4-476e-928d-c8ff4a87d796)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: XMf2vy43Bwg7RAgqskeW | 2026-05-17T19:03:10.675425+00:00 ---
+[2026-05-17T19:03:00.795847+00:00] [INGEST] Signal received from gateway boundary. Trace ID: XMf2vy43Bwg7RAgqskeW
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-008d582c0c3ff3af5c0a2a97;7c45fd56-7e6b-401b-ab02-64725ad777f1)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: UVPKqjYKu3BVxHQULuGQ | 2026-05-17T19:03:10.964445+00:00 ---
+[2026-05-17T19:03:00.792847+00:00] [INGEST] Signal received from gateway boundary. Trace ID: UVPKqjYKu3BVxHQULuGQ
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-19dcc93601f769975fba5455;c844a9b9-25a6-4249-bf94-29b1bb2e2bbc)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: riBFiSSzpIfblxH1QFbc | 2026-05-17T19:03:12.018229+00:00 ---
+[2026-05-17T19:03:00.804392+00:00] [INGEST] Signal received from gateway boundary. Trace ID: riBFiSSzpIfblxH1QFbc
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-74cdb8a327d426d3470c9303;b1ef7689-bafe-4adf-8c37-9b5d7f604775)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: sXdo1DD1AxKxWXLoTQzu | 2026-05-17T19:03:12.359018+00:00 ---
+[2026-05-17T19:03:00.805398+00:00] [INGEST] Signal received from gateway boundary. Trace ID: sXdo1DD1AxKxWXLoTQzu
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-6b116088274c816c43bd70e9;ece671f2-9fc4-49d9-bd4e-e05f4dbab9df)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: ltwpcGohq9r07ZY6W6Nx | 2026-05-17T19:03:13.375592+00:00 ---
+[2026-05-17T19:03:00.801361+00:00] [INGEST] Signal received from gateway boundary. Trace ID: ltwpcGohq9r07ZY6W6Nx
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e5-65d6617e0958c5907c6f2bd8;612c2d6e-8383-4cba-85c3-9252a70b0566)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: sCNXr959eKyTwJSBwnTE | 2026-05-17T19:03:13.686047+00:00 ---
+[2026-05-17T19:03:00.804899+00:00] [INGEST] Signal received from gateway boundary. Trace ID: sCNXr959eKyTwJSBwnTE
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[CIRCUIT_BREAKER_ENGAGED] Hugging Face API timeout/429 detected. Defaulting to deterministic local logic.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='MEDIUM' | affected_population=500 | confidence_score=0.99.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Warning: Prediction engine error - Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a10e8-1355af605b0cbed448d766e3;806e1fca-3e1a-4e24-ad07-b5ac501414b2)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-E236BE | 2026-05-17T19:05:20.913689+00:00 ---
+[2026-05-17T19:05:12.480747+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-E236BE
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "SEISMIC_EVENT",
+  "severity": "CATASTROPHIC",
+  "affected_population": 1000000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High magnitude earthquake report from social media…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='SEISMIC_EVENT' | severity='CATASTROPHIC' | affected_population=1000000 | confidence_score=0.95.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 7 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for SEISMIC_EVENT with severity level CATASTROPHIC.
+--- END SESSION ---
+
+--- SESSION: 4SeQD5XZhgCsvsE6kGWl | 2026-05-17T19:08:37.359617+00:00 ---
+[2026-05-17T19:08:37.005190+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 4SeQD5XZhgCsvsE6kGWl
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-3b39f999799d782005d0acfd;8bc581e6-70a1-43fb-9b05-9a838814a134)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 0hJaQAfy0U4iQE3j88bz | 2026-05-17T19:08:37.664142+00:00 ---
+[2026-05-17T19:08:37.003174+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 0hJaQAfy0U4iQE3j88bz
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-6e363f7b6c4219f044fb9134;8b83ee5a-c234-4eee-8320-b2633fa5e017)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 6KIs0YKayBTq10Br3ZFZ | 2026-05-17T19:08:38.730213+00:00 ---
+[2026-05-17T19:08:37.007715+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 6KIs0YKayBTq10Br3ZFZ
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-5afb275815ce8f972c4fd442;44466391-d291-46b7-a0b4-5940c2d28aa1)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 4VyGft80dpwR9Vj2rk3G | 2026-05-17T19:08:39.021846+00:00 ---
+[2026-05-17T19:08:37.006203+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 4VyGft80dpwR9Vj2rk3G
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-6d5f1ac541f938b02b7da8b4;f7dee914-f988-4657-a1e9-fa5ae41f89c8)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: UVhHp4dM3hK8E9nVzCMS | 2026-05-17T19:08:40.080863+00:00 ---
+[2026-05-17T19:08:37.016300+00:00] [INGEST] Signal received from gateway boundary. Trace ID: UVhHp4dM3hK8E9nVzCMS
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-2e801c3f6952b96d3148d758;acfc2ccb-e5b7-4d80-8607-2b04193bff2d)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: I4uYAWqxI9FZcQLuv3HQ | 2026-05-17T19:08:40.394099+00:00 ---
+[2026-05-17T19:08:37.011243+00:00] [INGEST] Signal received from gateway boundary. Trace ID: I4uYAWqxI9FZcQLuv3HQ
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-6dbac5b6577ce38e51606c1c;03500397-cebf-4bd7-8350-52aee77c4c09)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: UUrgicy2XtooaU0DJkE3 | 2026-05-17T19:08:41.440514+00:00 ---
+[2026-05-17T19:08:37.013759+00:00] [INGEST] Signal received from gateway boundary. Trace ID: UUrgicy2XtooaU0DJkE3
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-6baf8f640196b9d94452299c;e6449e20-880e-4e1e-ab57-58dd44d0449c)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: J5M6L5ndFTICaFwfQEC8 | 2026-05-17T19:08:41.740474+00:00 ---
+[2026-05-17T19:08:37.012243+00:00] [INGEST] Signal received from gateway boundary. Trace ID: J5M6L5ndFTICaFwfQEC8
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-50c2a2790475b09d7413669f;b769bd8e-4a9c-432e-a4e8-1d3f7f541f3f)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 7OYp5HNwTQK6jeeNSRWr | 2026-05-17T19:08:42.789981+00:00 ---
+[2026-05-17T19:08:37.009229+00:00] [INGEST] Signal received from gateway boundary. Trace ID: 7OYp5HNwTQK6jeeNSRWr
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-2685f397175c7e0a2400ead8;d9b23966-6ab9-44ac-9a05-810fcc78e301)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Sep91tmBRMENpyYgqZvS | 2026-05-17T19:08:43.094796+00:00 ---
+[2026-05-17T19:08:37.013248+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Sep91tmBRMENpyYgqZvS
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-45a022542120dcc86a402bab;5b03b2d6-7cae-43d2-bca3-f6c02e256913)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: CiPhJbTH9wPMXK41NJSv | 2026-05-17T19:08:44.129609+00:00 ---
+[2026-05-17T19:08:37.010235+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CiPhJbTH9wPMXK41NJSv
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-0147ad0211dfe53a22de9d55;11875552-95db-49ee-842d-03abeda00504)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: rzdw2OpWOQjrpo1yFmUo | 2026-05-17T19:08:44.443825+00:00 ---
+[2026-05-17T19:08:29.065872+00:00] [INGEST] Signal received from gateway boundary. Trace ID: rzdw2OpWOQjrpo1yFmUo
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "POWER_OUTAGE",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates power grid failure in North Nazimabad, …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: FfrFbbaod8xMYX9dv3Lt | 2026-05-17T19:08:45.487611+00:00 ---
+[2026-05-17T19:08:29.059318+00:00] [INGEST] Signal received from gateway boundary. Trace ID: FfrFbbaod8xMYX9dv3Lt
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "INFRASTRUCTURE_BURST_PIPE",
+  "severity": "MEDIUM",
+  "affected_population": 5000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Fused signal indicates a reported water main bur…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='INFRASTRUCTURE_BURST_PIPE' | severity='MEDIUM' | affected_population=5000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: Lh1ej213eKLKm36CrdcY | 2026-05-17T19:08:45.825842+00:00 ---
+[2026-05-17T19:08:29.064359+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Lh1ej213eKLKm36CrdcY
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High traffic congestion (10) and citizen report of major g…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: FiRospDxfDlZoFhWKI1b | 2026-05-17T19:08:46.838842+00:00 ---
+[2026-05-17T19:08:29.063345+00:00] [INGEST] Signal received from gateway boundary. Trace ID: FiRospDxfDlZoFhWKI1b
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High rain intensity (88.55 mm) and severe urban flooding report in…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: j4wvuQ1KrZyofEmRDH3i | 2026-05-17T19:08:47.187678+00:00 ---
+[2026-05-17T19:08:29.065365+00:00] [INGEST] Signal received from gateway boundary. Trace ID: j4wvuQ1KrZyofEmRDH3i
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "HIGH",
+  "affected_population": 50000,
+  "confidence_score": 0.8,
+  "agent_reasoning": "High rain intensity (87.71mm) and severe urban flooding report in …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='HIGH' | affected_population=50000 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for FLOODING with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: Uz3aDTbRA9jjshZkrSAY | 2026-05-17T19:08:48.215829+00:00 ---
+[2026-05-17T19:08:37.017429+00:00] [INGEST] Signal received from gateway boundary. Trace ID: Uz3aDTbRA9jjshZkrSAY
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-47a04b957efc5d592823a166;6d3faeb4-59d8-4fd7-9b1a-043bbba58714)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: XpQpCSHxFW5ypo4EbVrs | 2026-05-17T19:08:48.526003+00:00 ---
+[2026-05-17T19:08:37.019457+00:00] [INGEST] Signal received from gateway boundary. Trace ID: XpQpCSHxFW5ypo4EbVrs
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-3dfb58f75285978d7dca185a;833f571a-c70c-4c66-bc28-dbbb818f8456)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: e0fOQN1nCTUbHwTd2hYZ | 2026-05-17T19:08:49.561965+00:00 ---
+[2026-05-17T19:08:37.021958+00:00] [INGEST] Signal received from gateway boundary. Trace ID: e0fOQN1nCTUbHwTd2hYZ
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-03c01bad129945696b88833e;b9b889ca-e309-4afa-bb73-7e9b99ab2d46)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: aaFbY5LDxHA1gDgJNOep | 2026-05-17T19:08:49.876261+00:00 ---
+[2026-05-17T19:08:37.020959+00:00] [INGEST] Signal received from gateway boundary. Trace ID: aaFbY5LDxHA1gDgJNOep
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-116778a8129bebc046a0d2f2;3ecc9fda-fe78-4d67-b577-b8e3d481ea33)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: h7u1BGMtgnSfrKrtUM4z | 2026-05-17T19:08:50.913495+00:00 ---
+[2026-05-17T19:08:37.022964+00:00] [INGEST] Signal received from gateway boundary. Trace ID: h7u1BGMtgnSfrKrtUM4z
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-3fe1c5477405061e272f83ba;4c144e9b-b17c-4eba-8467-6c50a6a1be02)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: loEZjhNbuD0EyJShHwVA | 2026-05-17T19:08:51.224364+00:00 ---
+[2026-05-17T19:08:37.023969+00:00] [INGEST] Signal received from gateway boundary. Trace ID: loEZjhNbuD0EyJShHwVA
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-1688f4883e8e46e213751c3d;2e88d604-0c6f-458d-8edf-5a8c3ef4d820)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: p1B9MU7GujOiaCDQljsy | 2026-05-17T19:08:52.270984+00:00 ---
+[2026-05-17T19:08:37.025478+00:00] [INGEST] Signal received from gateway boundary. Trace ID: p1B9MU7GujOiaCDQljsy
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-5896bde24007b7492991d6cc;9035def1-1a85-43d4-b7ce-e541659248f8)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: r1cN7MGR8ou23rXHbJdU | 2026-05-17T19:08:52.554766+00:00 ---
+[2026-05-17T19:08:37.026498+00:00] [INGEST] Signal received from gateway boundary. Trace ID: r1cN7MGR8ou23rXHbJdU
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-5fc518d2507b604936791b2b;c1dc7b76-4e93-4a9a-a933-edc4c958c7a5)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: wrC9dFUJtt6trPL4C9dX | 2026-05-17T19:08:53.606316+00:00 ---
+[2026-05-17T19:08:37.028037+00:00] [INGEST] Signal received from gateway boundary. Trace ID: wrC9dFUJtt6trPL4C9dX
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised HfHubHTTPError: Client error '402 Payment Required' for url 'https://router.huggingface.co/v1/chat/completions' (Request ID: Root=1-6a0a1235-0cfb893a4aa165c1631cc8fe;ecadc02c-bc7e-4ac2-b8ce-0dbb56d3cf38)
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: CITIZEN-REP-EF57CC | 2026-05-17T19:09:41.211123+00:00 ---
+[2026-05-17T19:09:33.737410+00:00] [INGEST] Signal received from gateway boundary. Trace ID: CITIZEN-REP-EF57CC
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "SEISMIC_EVENT",
+  "severity": "CATASTROPHIC",
+  "affected_population": 1000000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High magnitude earthquake report from social media…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='SEISMIC_EVENT' | severity='CATASTROPHIC' | affected_population=1000000 | confidence_score=0.95.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for SEISMIC_EVENT with severity level CATASTROPHIC.
+--- END SESSION ---
