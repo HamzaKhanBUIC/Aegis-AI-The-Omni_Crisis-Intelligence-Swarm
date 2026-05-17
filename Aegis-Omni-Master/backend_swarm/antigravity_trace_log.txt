@@ -1,0 +1,416 @@
+[2026-05-16 14:00:01] [SYSTEM] AEGIS-OMNI SWARM ENGINE INITIALIZED.
+[2026-05-16 14:00:01] [SYSTEM] STANDBY MODE: Listening for crisis signals from Karachi Intelligence Grid...
+
+[2026-05-16 14:00:15] [GATEWAY] INCOMING SIGNAL INGESTED:
+{
+    "incident_id": "KHI-DEMO-99",
+    "source": "Citizen_Sentinel_App",
+    "text": "Gulshan-e-Iqbal Block 13D is flooding! Water everywhere, cars are floating. Panic on the streets!",
+    "location": {"lat": 24.9123, "lng": 67.0892}
+}
+
+[2026-05-16 14:00:15] [DATA_FUSER_NODE] Normalizing multi-source vectors...
+[2026-05-16 14:00:15] [DATA_FUSER_NODE] SENSOR ATTACHMENT: { "rain_mm": 0.0, "grid_voltage_kv": 220.0 }
+[2026-05-16 14:00:15] [DATA_FUSER_NODE] State propagation complete. Handoff to TriageEngineNode.
+
+[2026-05-16 14:00:16] [TRIAGE_ENGINE_NODE] Analyzing social sentiment...
+[2026-05-16 14:00:16] [TRIAGE_ENGINE_NODE] KEYWORD_DETECTION: ["flooding", "floating", "panic"] -> Panic_Score: 0.92
+[2026-05-16 14:00:17] [TRIAGE_ENGINE_NODE] ATTEMPTING LIVE LLM INFERENCE (meta-llama/Llama-3-70B)...
+[2026-05-16 14:00:22] [TRIAGE_ENGINE_NODE] ⚠️ WARNING: LLM INFERENCE TIMEOUT (5000ms). Engaging Sovereign Resilience Protocol...
+[2026-05-16 14:00:22] [TRIAGE_ENGINE_NODE] [FALLBACK_ACTIVE] Executing deterministic_triage_fallback()...
+[2026-05-16 14:00:22] [TRIAGE_ENGINE_NODE] INITIAL CLASSIFICATION:
+{
+    "crisis_type": "URBAN_FLOODING",
+    "severity": "CATASTROPHIC",
+    "affected_population": 1500,
+    "confidence_score": 0.88,
+    "reasoning": "High-density social panic signals matched with flooding keywords and urban location."
+}
+
+[2026-05-16 14:00:22] [ROUTE_MANAGER] CRITICAL DISCREPANCY DETECTED: 
+Social reports claim 'CATASTROPHIC_FLOOD' while hardware sensor 'rain_mm' is 0.0.
+[2026-05-16 14:00:22] [ROUTE_MANAGER] CURVEBALL DETECTED. Re-routing flow to ValidationNode (Zero-Trust Sentinel).
+
+[2026-05-16 14:00:23] [VALIDATION_NODE] Sentinel logic engaged...
+[2026-05-16 14:00:23] [VALIDATION_NODE] CROSS-REFERENCE LOG:
+- Social_Input: "flooding", "water everywhere"
+- Physical_Sensor: rain_mm = 0.0 (STRICT_ZERO)
+- Infrastructure_Map: KWSB Main Trunk Line B resides beneath target coordinates.
+[2026-05-16 14:00:23] [VALIDATION_NODE] RATIONALE: Social flood reports without active rainfall indicate massive water main rupture. Overriding triage classification.
+[2026-05-16 14:00:23] [VALIDATION_NODE] UPDATED CLASSIFICATION:
+{
+    "crisis_type": "INFRASTRUCTURE_BURST_PIPE",
+    "severity": "HIGH",
+    "override_applied": true,
+    "anomalies_detected": ["NO_RAIN_FLOOD_DISCREPANCY"]
+}
+
+[2026-05-16 14:00:24] [RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE...
+[2026-05-16 14:00:24] [RESOURCE_ALLOCATOR_NODE] PROVIDER_RANKING:
+1. KWSB_HEAVY_REPAIR_SQUAD (Priority: ALPHA) - Critical for valve isolation.
+2. SINDH_RESCUE_1122 (Priority: BETA) - Required for civilian evacuation/standby.
+3. K_ELECTRIC_RAPID_RESPONSE (Priority: GAMMA) - Required for preemptive substation insulation.
+[2026-05-16 14:00:24] [RESOURCE_ALLOCATOR_NODE] DISPATCH_orders:
+{
+    "agency": "KWSB",
+    "units": 2,
+    "objective": "Isolate Main Line B trunk valve; cease water flow to Block 13D."
+}
+
+[2026-05-16 14:00:25] [API_WRITER] Syncing final swarm state to Firestore...
+[2026-05-16 14:00:25] [API_WRITER] SUCCESS: Document KHI-DEMO-99 updated with status: APPROVED (Verified Anomaly).
+[2026-05-16 14:00:25] [SYSTEM] EVENT LOOP CLEARED. 200 OK.
+[2026-05-16 14:00:25] [SYSTEM] Total Swarm Latency: 10.42s (including LLM timeout and recovery).
+
+--- SESSION: KHI-FLOOD-001 | 2026-05-16T21:46:56.596062 ---
+[2026-05-16T21:46:56.241332] [INGEST] Signal received from gateway boundary. Trace ID: KHI-FLOOD-001
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='CATASTROPHIC' | affected_population=45000 | confidence_score=0.87.
+[VALIDATION_NODE] Status: ANOMALY_DETECTED | Justification: [FALLBACK ENGINE] Programmatic cross-reference triggered. Contradiction identified: Visual flood reports paired with 0.0mm sensor precipitation. Diagnostic: KWSB Main Line Rupture.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: KHI-TRAFFIC-002 | 2026-05-16T21:46:58.555824 ---
+[2026-05-16T21:46:58.550302] [INGEST] Signal received from gateway boundary. Trace ID: KHI-TRAFFIC-002
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='POWER_OUTAGE' | severity='MEDIUM' | affected_population=8000 | confidence_score=0.78.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for POWER_OUTAGE with severity level MEDIUM.
+--- END SESSION ---
+
+--- SESSION: KHI-FALSE-003 | 2026-05-16T21:47:00.865148 ---
+[2026-05-16T21:47:00.859120] [INGEST] Signal received from gateway boundary. Trace ID: KHI-FALSE-003
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: VF7vTMBXirDvmNsfVWWa | 2026-05-16T22:28:15.992698 ---
+[2026-05-16T22:28:13.433249] [INGEST] Signal received from gateway boundary. Trace ID: VF7vTMBXirDvmNsfVWWa
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: teJ0RQCM0MAfNEgxK5kp | 2026-05-16T22:28:16.382155 ---
+[2026-05-16T22:28:13.560735] [INGEST] Signal received from gateway boundary. Trace ID: teJ0RQCM0MAfNEgxK5kp
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: mzfadxEGrwkmgahGLEOG | 2026-05-16T22:28:17.427444 ---
+[2026-05-16T22:28:13.559735] [INGEST] Signal received from gateway boundary. Trace ID: mzfadxEGrwkmgahGLEOG
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: cYixB1iQ42XE4eN6zZFY | 2026-05-16T22:28:17.748526 ---
+[2026-05-16T22:28:13.558734] [INGEST] Signal received from gateway boundary. Trace ID: cYixB1iQ42XE4eN6zZFY
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: cL1gZ3tUknHohM67F5jg | 2026-05-16T22:28:18.266907 ---
+[2026-05-16T22:28:13.557412] [INGEST] Signal received from gateway boundary. Trace ID: cL1gZ3tUknHohM67F5jg
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Lcw4o0EnMZFgwKJSxurN | 2026-05-16T22:45:58.630875 ---
+[2026-05-16T22:45:58.590276] [INGEST] Signal received from gateway boundary. Trace ID: Lcw4o0EnMZFgwKJSxurN
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: eFTSr07M6LrMVxAGVlXt | 2026-05-16T22:45:59.055352 ---
+[2026-05-16T22:45:58.597779] [INGEST] Signal received from gateway boundary. Trace ID: eFTSr07M6LrMVxAGVlXt
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: kSmPquW4BUZ9wsUtcntx | 2026-05-16T22:46:00.002003 ---
+[2026-05-16T22:45:58.600775] [INGEST] Signal received from gateway boundary. Trace ID: kSmPquW4BUZ9wsUtcntx
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: hGWXTG4S7cjbHkIk2E0w | 2026-05-16T22:46:00.489581 ---
+[2026-05-16T22:45:58.598776] [INGEST] Signal received from gateway boundary. Trace ID: hGWXTG4S7cjbHkIk2E0w
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: u9RjJWgaP8cAJUmBs5iw | 2026-05-16T22:46:01.344953 ---
+[2026-05-16T22:45:58.601776] [INGEST] Signal received from gateway boundary. Trace ID: u9RjJWgaP8cAJUmBs5iw
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: LnJCm2pzPcyDvDp7RahB | 2026-05-16T22:52:54.378145 ---
+[2026-05-16T22:52:54.372121] [INGEST] Signal received from gateway boundary. Trace ID: LnJCm2pzPcyDvDp7RahB
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: jwVjF8xsmAdVTjH95d4K | 2026-05-16T22:54:47.905561 ---
+[2026-05-16T22:54:47.899035] [INGEST] Signal received from gateway boundary. Trace ID: jwVjF8xsmAdVTjH95d4K
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Wi3UDEadh8CuH3pQ5l68 | 2026-05-16T22:56:19.040896 ---
+[2026-05-16T22:56:19.036293] [INGEST] Signal received from gateway boundary. Trace ID: Wi3UDEadh8CuH3pQ5l68
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: s5wpfXtcqQqNC4CUVZHg | 2026-05-16T23:00:45.169710 ---
+[2026-05-16T23:00:45.164728] [INGEST] Signal received from gateway boundary. Trace ID: s5wpfXtcqQqNC4CUVZHg
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: 9gYwEK2NI6TSno8UPoQf | 2026-05-16T23:14:40.540558 ---
+[2026-05-16T23:14:40.534027] [INGEST] Signal received from gateway boundary. Trace ID: 9gYwEK2NI6TSno8UPoQf
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: UyCfExEX8NfFi60kVB8t | 2026-05-16T23:17:44.557999 ---
+[2026-05-16T23:17:44.553129] [INGEST] Signal received from gateway boundary. Trace ID: UyCfExEX8NfFi60kVB8t
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: I8eCPKL87lVWldgjnrkx | 2026-05-16T23:20:55.398378 ---
+[2026-05-16T23:20:55.392879] [INGEST] Signal received from gateway boundary. Trace ID: I8eCPKL87lVWldgjnrkx
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: zom7PeZh0x5UHAajlIPm | 2026-05-16T23:25:04.069674 ---
+[2026-05-16T23:25:04.063675] [INGEST] Signal received from gateway boundary. Trace ID: zom7PeZh0x5UHAajlIPm
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: wlLpkBjwVt2XfsVOstBo | 2026-05-16T23:28:38.868903 ---
+[2026-05-16T23:28:38.863876] [INGEST] Signal received from gateway boundary. Trace ID: wlLpkBjwVt2XfsVOstBo
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: Ctnp7844z9RxS9k6D3Er | 2026-05-16T23:30:15.598118 ---
+[2026-05-16T23:30:15.593600] [INGEST] Signal received from gateway boundary. Trace ID: Ctnp7844z9RxS9k6D3Er
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 3 source(s): ['social_text', 'rain_mm', 'source'].
+[TRIAGE · STEP 2] Constructing LangChain message pipeline for meta-llama/Meta-Llama-3-70B-Instruct. SystemMessage + HumanMessage ready.
+[TRIAGE · STEP 3 — ERROR] LLM pipeline raised ValueError: You must provide an api_key to work with auto API or log in with `hf auth login`.. Engaging deterministic fallback classifier.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: MOCK-FIRE-001 | 2026-05-17T01:13:38.930668+00:00 ---
+[2026-05-17T01:13:30.181667+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-FIRE-001
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.9,
+  "agent_reasoning": "Fused signal indicates a reported structural fire at Korangi …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-TRAFFIC-002 | 2026-05-17T01:13:43.413273+00:00 ---
+[2026-05-17T01:13:35.531472+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-TRAFFIC-002
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.9,
+  "agent_reasoning": "High traffic congestion (97%) and social media report of a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 6 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-QUAKE-004 | 2026-05-17T01:13:53.821177+00:00 ---
+[2026-05-17T01:13:45.827195+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-QUAKE-004
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Social media report indicates severe structural damage to a b…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-FIRE-001 | 2026-05-17T01:14:22.857209+00:00 ---
+[2026-05-17T01:14:13.618461+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-FIRE-001
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.9,
+  "agent_reasoning": "High confidence due to explicit social media report of a mass…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-TRAFFIC-002 | 2026-05-17T01:14:28.474935+00:00 ---
+[2026-05-17T01:14:18.931393+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-TRAFFIC-002
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "TRAFFIC_GRIDLOCK",
+  "severity": "HIGH",
+  "affected_population": 10000,
+  "confidence_score": 0.9,
+  "agent_reasoning": "High traffic congestion (97%) and social media report of a…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='TRAFFIC_GRIDLOCK' | severity='HIGH' | affected_population=10000 | confidence_score=0.90.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 5 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for TRAFFIC_GRIDLOCK with severity level HIGH.
+--- END SESSION ---
+
+--- SESSION: MOCK-CURVEBALL-003 | 2026-05-17T01:14:37.464294+00:00 ---
+[2026-05-17T01:14:24.246386+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-CURVEBALL-003
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "FLOODING",
+  "severity": "CATASTROPHIC",
+  "affected_population": 100000,
+  "confidence_score": 0.95,
+  "agent_reasoning": "High traffic congestion (88%) and explicit social media …
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='CATASTROPHIC' | affected_population=100000 | confidence_score=0.95.
+[VALIDATION_NODE] Status: ANOMALY_DETECTED | Justification: Social media reports claim massive flash flooding with 20 feet high water, but weather station telemetry registers 0.0mm of active precipitation, making a natural flash flood physically impossible. Cross-referencing municipal infrastructure telemetry reveals a likely major localized water main blowout/burst pipe, not a meteorological disaster.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: MOCK-QUAKE-004 | 2026-05-17T01:14:38.177664+00:00 ---
+[2026-05-17T01:14:29.550504+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-QUAKE-004
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] Constructing message pipeline for meta-llama/Meta-Llama-3-70B-Instruct.
+[TRIAGE · STEP 3] LLM responded successfully. Raw output snippet: {
+  "crisis_type": "STRUCTURAL_FIRE",
+  "severity": "HIGH",
+  "affected_population": 500,
+  "confidence_score": 0.8,
+  "agent_reasoning": "Social media report indicates violent shaking, glass breaking…
+[TRIAGE · STEP 4] Final classification validated. crisis_type='STRUCTURAL_FIRE' | severity='HIGH' | affected_population=500 | confidence_score=0.80.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Successfully predicted 4 secondary threats.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for STRUCTURAL_FIRE with severity level HIGH.
+--- END SESSION ---

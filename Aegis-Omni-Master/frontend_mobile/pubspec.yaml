@@ -1,0 +1,35 @@
+name: aegis_mobile
+description: "Aegis-Omni Frontend Prototype"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State & Core Architecture
+  flutter_riverpod: ^2.4.9
+  google_fonts: ^6.1.0
+  http: ^1.1.0
+  
+  # Firebase Infrastructure
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.13.6
+  firebase_auth: ^4.14.0
+  google_sign_in: ^6.1.6
+
+  # Cyber-Warfare Mapping Layer
+  flutter_map: ^6.0.0
+  latlong2: ^0.9.0
+  google_maps_flutter: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

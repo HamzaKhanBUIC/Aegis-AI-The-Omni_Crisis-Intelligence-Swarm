@@ -1,0 +1,47 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Aegis-Omni — Root .gitignore
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── SECRETS (NEVER COMMIT) ────────────────────────────────────────────────────
+.env
+*.env
+serviceAccountKey.json
+google-services.json
+GoogleService-Info.plist
+
+# ── PYTHON ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+.Python
+
+# ── FLUTTER / DART ────────────────────────────────────────────────────────────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+build/
+.idea/
+*.g.dart
+
+# ── NODE / FRONTEND ───────────────────────────────────────────────────────────
+node_modules/
+.next/
+dist/
+.cache/
+
+# ── OS FILES ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── LOGS (keep the trace log file, not its contents) ─────────────────────────
+# antigravity_trace_log.txt is intentionally NOT ignored — judges need it.
+
+# ── DOCKER ────────────────────────────────────────────────────────────────────
+# docker-compose.override.yml

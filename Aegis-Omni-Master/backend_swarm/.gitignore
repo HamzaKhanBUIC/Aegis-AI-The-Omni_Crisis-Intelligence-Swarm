@@ -1,0 +1,16 @@
+# Aegis-Omni Secrets
+.env
+serviceAccountKey.json
+*.json
+
+# Python Environment
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db

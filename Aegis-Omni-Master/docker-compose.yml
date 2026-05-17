@@ -1,0 +1,71 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Aegis-Omni Intelligence Swarm — docker-compose.yml
+# Runs the complete swarm stack as a standalone system.
+# Usage:
+#   1. Place your serviceAccountKey.json in backend_swarm/
+#   2. Set HF_API_TOKEN in backend_swarm/.env
+#   3. Run: docker-compose up --build
+# ──────────────────────────────────────────────────────────────────────────────
+
+version: "3.9"
+
+services:
+
+  # ─────────────────────────────────────────────────
+  # AEGIS SWARM GATEWAY (FastAPI + LangGraph Engine)
+  # ─────────────────────────────────────────────────
+  aegis_swarm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis_swarm_gateway
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend_swarm/.env
+    environment:
+      - PYTHONIOENCODING=utf-8
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Live-mount the trace log so you can tail it from your host machine
+      - ./backend_swarm/antigravity_trace_log.txt:/app/backend_swarm/antigravity_trace_log.txt
+      # Mount credentials (never bake secrets into image layers)
+      - ./backend_swarm/serviceAccountKey.json:/app/backend_swarm/serviceAccountKey.json:ro
+      - ./backend_swarm/crisis_data.json:/app/backend_swarm/crisis_data.json:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    networks:
+      - aegis_net
+
+  # ─────────────────────────────────────────────────
+  # MOCK DATA PIPELINE (One-shot scenario emitter)
+  # Runs AFTER the swarm gateway is healthy.
+  # ─────────────────────────────────────────────────
+  aegis_mock_pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegis_mock_pipeline
+    restart: "no"
+    depends_on:
+      aegis_swarm:
+        condition: service_healthy
+    env_file:
+      - ./backend_swarm/.env
+    environment:
+      - PYTHONIOENCODING=utf-8
+    volumes:
+      - ./backend_swarm/serviceAccountKey.json:/app/backend_swarm/serviceAccountKey.json:ro
+      - ./backend_swarm/crisis_data.json:/app/backend_swarm/crisis_data.json:ro
+    command: ["python", "backend_swarm/mock_ingester.py"]
+    networks:
+      - aegis_net
+
+networks:
+  aegis_net:
+    driver: bridge

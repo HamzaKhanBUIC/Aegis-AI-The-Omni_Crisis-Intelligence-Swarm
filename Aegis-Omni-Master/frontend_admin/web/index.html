@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aegis-Omni Admin Command Center — Operator & Developer Intelligence Grid for Crisis Management.">
+  <meta name="theme-color" content="#0B0B0C">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aegis Admin">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Aegis-Omni | Admin Command Center</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      background-color: #0B0B0C;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    /* Loading screen */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #0B0B0C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-family: monospace;
+      color: #00E5FF;
+    }
+    #loading-screen .brand {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    #loading-screen .sub {
+      font-size: 10px;
+      color: #52525B;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+    #loading-screen .bar-wrap {
+      width: 180px;
+      height: 2px;
+      background: #27272A;
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    #loading-screen .bar {
+      width: 40%;
+      height: 100%;
+      background: #00E5FF;
+      border-radius: 1px;
+      animation: sweep 1.2s ease-in-out infinite;
+    }
+    @keyframes sweep {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="brand">AEGIS-OMNI</div>
+    <div class="sub">ADMIN COMMAND CENTER</div>
+    <div class="bar-wrap"><div class="bar"></div></div>
+  </div>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      const ls = document.getElementById('loading-screen');
+      if (ls) {
+        ls.style.opacity = '0';
+        ls.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => ls.remove(), 500);
+      }
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
