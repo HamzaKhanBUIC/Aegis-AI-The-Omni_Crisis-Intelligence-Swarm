@@ -83,6 +83,16 @@ The system is intentionally designed to be **fooled by social media hysteria** �
 **Zero-Trust fires:** Weather telemetry reads `rain_mm: 0.0`. A natural flash flood is physically impossible with zero active precipitation.  
 **Override Action Simulation:** `INFRASTRUCTURE_BURST_PIPE / MEDIUM` — KWSB Heavy Repair Squad dispatched instead of flood rescue.
 
+
+---
+
+## 🔒 Security-First Local Architecture (Why the Swarm is Local-First)
+
+For this hackathon submission, Aegis-Omni is intentionally designed to run in a highly secure, local-first environment rather than hosted on public cloud endpoints. This architectural decision was made to demonstrate production-grade enterprise security:
+1. **Zero-Leak Token Protection**: To safeguard the Hugging Face API keys and agent credentials that power our Swarm brain, keeping the Swarm offline prevents public endpoint exploitation or key/quota exhaustion.
+2. **Data Sovereignty & Security**: Real-time crisis response data involves critical infrastructure locations, citizen coordinates, and active emergency service telemetry. Under our zero-trust philosophy, crisis intelligence swarms run strictly inside secure enterprise subnets to guarantee complete privacy.
+3. **High-Fidelity Action Simulation**: The local-first setup ensures zero network latency and perfect reliability during simulations. Utilizing our localized, high-frequency mock sensor engine allows us to demonstrate real-time telemetry fusion and instant resource dispatches without the cold-start delays of public free-tier servers.
+
 ---
 
 ## 🔑 Running The System
