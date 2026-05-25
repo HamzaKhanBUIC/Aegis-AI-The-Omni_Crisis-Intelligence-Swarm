@@ -178,7 +178,7 @@ def dispatch_crisis_response(signal_id: UUID, confidence_score: int, is_verified
         
         # 2. Trigger Fin-Resilience (BackupLoans)
         reasoning_trace.append("Step 4: Disbursing emergency Fin-Resilience funds (BackupLoans) to affected sectors.")
-        target_area = "Karachi_South"  # Hardcoded localization for hackathon demonstration
+        target_area = "Karachi_South"  # Hardcoded localization for initial deployment
         financial_transactions = initiate_backup_loan(target_area)
         response_payload["financial_relief"] = financial_transactions
     else:

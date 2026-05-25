@@ -2,116 +2,98 @@
 
 ![Aegis-Omni Tactical Banner](docs/aegis_banner.png)
 
-> **"Don't respond to crises. Predict, verify, and neutralize them before they escalate."**
+> **"A sovereign, multi-agent AI swarm designed for metropolitan-scale predictive defense, real-time telemetry fusion, and zero-trust event validation."**
 
 ---
 
-## 🏆 Hackathon Compliance & Credits
+## 🏗️ Architecture Flow & System Topology
 
-### Team Aegis
-* **Lead Developer & Architect**: Hamza Imran 
-  * [GitHub Repository](https://github.com/HamzaKhanBUIC/Aegis-AI-The-Omni_Crisis-Intelligence-Swarm) | [LinkedIn Profile](https://www.linkedin.com/in/hamza-imran-17569b383/)
-  * *(Sole developer for all codebase, architecture, AI swarm logic, and full-stack implementation)*
-* **QA Engineer, Compiler, Folder Assembler & Recording Editor**: Hamza Asif 
-  * *(Responsible for QA, compilation, repository structuring, and demo video recording/editing guidance)*
-
-### Google Antigravity & LLM Orchestration
-**Mandatory Requirement Declaration:** We officially confirm that **Google Antigravity (AG)** was the **MAIN Orchestrator** throughout our entire development lifecycle. All agentic workflow implementations, project orchestration, and code generation were executed using AG as the primary orchestrator. We are submitting all generated artifacts (implementation plans, task lists, walkthroughs) within this repository to validate the AG development lifecycle.
+> *System Topology Diagram Placeholder*
+>
+> **Data Ingestion & Routing:** The system operates on a decentralized architecture. Edge devices (Mobile Citizen Sentinel) and simulation telemetry endpoints continuously stream multimodal data (noisy text, spatial telemetry, sensor data) into a local FastAPI Gateway.
+>
+> **Swarm Orchestration:** A stateful LangGraph Orchestrator intercepts this data and routes signals chronologically to specialized modular LLM agents (DataFuser, TriageAgent, ValidationSentinel, CascadePredictor, ResourceAllocator).
+>
+> **Sovereign Execution:** All reasoning, decision-making, and simulation execution occur entirely within a localized, zero-trust environment. A headless GPU server processes agentic tasks while the Flutter-based Tactical Web Command Center displays live intelligence mapping.
 
 ---
 
-## 🛡️ What Is Aegis-Omni? (Challenge 3: CIRO)
+## ⚡ Key Capabilities
 
-Aegis-Omni is a **sovereign, multi-agent AI swarm** designed for metropolitan-scale deployment in high-entropy urban environments (e.g., Karachi, Pakistan). It solves the fragmentation and reactivity of traditional emergency systems by autonomously ingesting chaotic multi-source crisis signals, fusing them against physical sensor telemetry, eliminating false alarms via Zero-Trust verification, and dispatching emergency resources—all in real-time.
-
----
-
-## ✅ Hackathon Requirements Met
-
-### 1. Multi-Source Input Processing
-* **Implementation:** Accepts noisy, informal text complaints from citizens via the **Flutter Mobile App**. Simultaneously ingests simulated API data (Weather/Traffic sensors) via our Python simulation engine.
-
-### 2. Event Detection
-* **Implementation:** Uses our LangGraph Swarm gateway to identify anomalies and cluster crisis signals into recognizable threats (e.g., `URBAN_FLOODING`, `CIVIL_UNREST`).
-
-### 3. Reasoning & Situation Analysis
-* **Implementation:** The `TriageAgent` combines multi-source signals to infer the situation, estimate severity (LOW/MEDIUM/HIGH/CATASTROPHIC), and generate a confidence score with an agentic reasoning trace.
-
-### 4. Action Planning
-* **Implementation:** The `ResourceAllocator` agent dynamically generates coordinated response actions, creating emergency tickets, planning routing, and mapping specific resources (e.g., KWSB Dewatering Pumps, Traffic Police).
-
-### 5. Action Simulation (CRITICAL)
-* **Implementation:** The pipeline perfectly simulates the execution. When a signal is ingested, the system generates simulated emergency tickets, updates mock map routes on the **Web Admin Dashboard**, and sends real-time simulated alerts directly back to the **Mobile App Chatbot Terminal**.
-
-### 6. Outcome Visualization
-* **Implementation:** The impact is shown beautifully on the **Flutter Web Admin Dashboard** (Tactical Map, Active Crises logs, and Inspector panel) and the **Mobile App** (Citizen Status Tracking & Live Terminal Feed).
-
-### 7. Agentic Workflow (MANDATORY)
-* **Implementation:** Built using a structured LangGraph multi-agent pipeline mapping planning → decision → execution. Multiple specialized agents (`DataFuser`, `TriageAgent`, `ValidationSentinel`, `CascadePredictor`, `ResourceAllocator`) interact chronologically.
+*   **Multi-Source Signal Fusion**: Ingests and normalizes noisy citizen reports alongside rigid physical sensor telemetry (e.g., weather, traffic).
+*   **Zero-Trust Verification Engine**: Employs autonomous, multi-agent corroboration to catch and eliminate false alarms (e.g., identifying when social hysteria contradicts physical weather telemetry).
+*   **Parallel Agentic Triage**: Real-time classification of crisis severity and affected populations using specialized inference agents.
+*   **Autonomous Resource Orchestration**: Dynamically models emergency routes and maps specific municipal resources (e.g., dewatering pumps, heavy repair squads) to verified incidents.
+*   **Action Simulation Pipeline**: High-fidelity execution simulator that triggers localized tickets and instantly alerts edge nodes via websocket/terminal feeds.
 
 ---
 
-## 🏗️ Architecture & Deliverables
+## 🛠️ Technical Stack Split
 
-```plaintext
-Aegis-Omni-Master/
-│
-├── 📂 docs/                          ← Documentation, mathematical deep-dives, & artifacts
-├── 🐍 backend_swarm/                 ← AI Brain: LangGraph + FastAPI Gateway
-│   ├── main_api.py                   ← FastAPI entry point + Firestore listener
-│   ├── agents/                       ← Multi-Agent interaction nodes
-│   ├── simulate_citizen_report.py   ← Action Simulation script
-│   └── antigravity_trace_log.txt    ← Agent Trace / Logs (Deliverable 3)
-│
-├── 📱 frontend_mobile/               ← Working Prototype Mobile App (Deliverable 1)
-├── 💻 frontend_admin/                ← Working Prototype Web App (Optional Deliverable)
-│
-├── Dockerfile                        ← Production container
-├── docker-compose.yml                ← Standalone one-command deployment
-└── README.md                         ← You are here (Deliverable 4)
-```
-
-*(Note: The Demo Video (Deliverable 2) is submitted externally as required).*
+*   **AI Orchestration & Agentic Logic**: LangGraph, Modular Agent Nodes (Python)
+*   **LLM Integration**: Google Gemini / Llama-3-70B Pipeline
+*   **Backend & Gateway**: Python 3.10+, FastAPI
+*   **Simulation Engine**: Custom High-Frequency Telemetry Injector
+*   **Frontend Command Center**: Flutter (Web Dashboard & Mobile Node)
+*   **Infrastructure**: Docker, Local-First Sovereign Networking
 
 ---
 
-## 🧠 The "Curveball" — Zero-Trust Verification
+## 📊 Proof of Evaluation
 
-The system is intentionally designed to be **fooled by social media hysteria** — and then **catch itself**.
-
-**Scenario:** Simulated tweets claim a catastrophic flash flood has destroyed a bridge. Triage AI classifies: `FLOODING / CATASTROPHIC / 100,000 affected`.  
-**Zero-Trust fires:** Weather telemetry reads `rain_mm: 0.0`. A natural flash flood is physically impossible with zero active precipitation.  
-**Override Action Simulation:** `INFRASTRUCTURE_BURST_PIPE / MEDIUM` — KWSB Heavy Repair Squad dispatched instead of flood rescue.
-
-
----
-
-## 🔒 Security-First Local Architecture (Why the Swarm is Local-First)
-
-For this hackathon submission, Aegis-Omni is intentionally designed to run in a highly secure, local-first environment rather than hosted on public cloud endpoints. This architectural decision was made to demonstrate production-grade enterprise security:
-1. **Zero-Leak Token Protection**: To safeguard the Hugging Face API keys and agent credentials that power our Swarm brain, keeping the Swarm offline prevents public endpoint exploitation or key/quota exhaustion.
-2. **Data Sovereignty & Security**: Real-time crisis response data involves critical infrastructure locations, citizen coordinates, and active emergency service telemetry. Under our zero-trust philosophy, crisis intelligence swarms run strictly inside secure enterprise subnets to guarantee complete privacy.
-3. **High-Fidelity Action Simulation**: The local-first setup ensures zero network latency and perfect reliability during simulations. Utilizing our localized, high-frequency mock sensor engine allows us to demonstrate real-time telemetry fusion and instant resource dispatches without the cold-start delays of public free-tier servers.
+> *Metrics & Telemetry Data Placeholder*
+>
+> *   **RAGAS Evaluation Score**: `[Insert Metric]`
+> *   **Latency Metrics**: Average inference and end-to-end swarm consensus time `< [X] ms` on local headless hardware.
+> *   **Token Consumption Efficiency**: `[Insert tokens/request efficiency data]`
+> *   **Validation Accuracy**: `[X]%` reduction in false positives via the Zero-Trust Sentinel agent.
 
 ---
 
-## 🔑 Running The System
+## 🚀 Quick Start & Local Deployment
+
+Initialize the entire sovereign multi-agent swarm locally using Docker for an immediate, isolated environment.
 
 ```bash
-# 1. Install dependencies
-pip install -r backend_swarm/requirements.txt
+# Clone the repository
+git clone https://github.com/[your-username]/Aegis-Omni.git
+cd Aegis-Omni-Master
 
-# 2. Terminal 1 — Start the Swarm Gateway (Agentic Workflow)
-cd backend_swarm
-python main_api.py
-
-# 3. Terminal 2 — Fire Action Simulation (Mock Telemetry)
-cd backend_swarm
-python simulate_citizen_report.py
-
-# 4. Terminals 3 & 4 — Run Mobile and Web Dashboards
-# Run Flutter apps in their respective frontend directories
+# Build and deploy the sovereign container architecture
+docker-compose up --build
 ```
 
+### Manual Local Execution
+
+If deploying directly to a localized machine without Docker:
+
+```bash
+# 1. Navigate to Swarm Core
+cd Aegis-Omni-Master/backend_swarm
+
+# 2. Virtual Environment Setup
+python -m venv venv
+source venv/bin/activate  # On Windows: `venv\Scripts\activate`
+
+# 3. Package Installation
+pip install -r requirements.txt
+
+# 4. Terminal 1 — Start the Swarm API Gateway
+python main_api.py
+
+# 5. Terminal 2 — Fire Action Simulation (Telemetry Injection)
+python simulate_citizen_report.py
+```
+
+*Note: For the Tactical Dashboard and Mobile Node, navigate to `frontend_admin` and `frontend_mobile` respectively and run `flutter run`.*
+
 ---
-*Aegis-Omni Intelligence Command · Built exclusively via Google Antigravity · May 2026*
+
+## 🛑 Error Handling & Edge Cases
+
+*   **API Endpoint Unreachable / Timeout**: If the primary LLM inference pipeline experiences a network timeout, HTTP 429 rate limit, or 503 error, a localized, deterministic circuit breaker (fallback logic) automatically engages to prevent system lockup and ensure continuous emergency response.
+*   **Sensor Discrepancy & Zero-Trust Rejection**: The swarm is designed to handle contradictory inputs gracefully. If a severe event is reported via social channels but physical telemetry reads zero anomalies (e.g., flash flood reported with `0.0mm` rain), the Validation Sentinel agent will override the alert, flag it as a false positive, and halt resource allocation.
+*   **Local Server Drop**: The stateful LangGraph orchestrator maintains the crisis event loop. Should a node disconnect, the state is preserved locally, allowing the system to resume assessment and allocation upon restoration.
+
+---
+*Aegis-Omni Intelligence Command · Sovereign Architecture*

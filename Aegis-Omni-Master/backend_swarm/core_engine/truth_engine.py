@@ -137,7 +137,7 @@ def verify_signal(social_text: str, sensor_data: Dict[str, Any], user_tier: int 
         return {"is_verified": False, "confidence_score": 0, "domain_routing": "false_alarm", "note": "EMPTY_PAYLOAD"}
 
     if not USE_LIVE_AI:
-        logger.warning("KING-MODE ACTIVE: Bypassing Truth Engine LLM. Returning perfect hackathon mock data.")
+        logger.warning("KING-MODE ACTIVE: Bypassing Truth Engine LLM. Returning perfect simulation mock data.")
         return {
             "verification_status": "VERIFIED",
             "discrepancy_analysis": "Social claim matches telemetry spikes. Threat is real.",
