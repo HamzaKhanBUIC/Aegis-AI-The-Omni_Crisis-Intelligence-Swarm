@@ -188,7 +188,7 @@ app = FastAPI(title="Aegis-Omni Sovereign Gateway", version="2.0.0", lifespan=li
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Tighten this up for production, but leave wide open for the hackathon hack
+    allow_origins=["*"], # Tighten this up for production, but leave wide open for initial deployment
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

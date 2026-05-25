@@ -95,7 +95,7 @@ made this classification)"
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Mock fallback — used when USE_LIVE_AI=False (demo / hackathon mode)
+# Mock fallback — used when USE_LIVE_AI=False (demo / simulation mode)
 # ──────────────────────────────────────────────────────────────────────────────
 def _mock_triage_classification(incoming_signals: dict) -> dict:
     """
