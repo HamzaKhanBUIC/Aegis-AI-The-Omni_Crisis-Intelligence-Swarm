@@ -1,0 +1,12 @@
+{
+  "incident_id": "MOCK-CURVEBALL-FINAL",
+  "incident_type": "FLOODING",
+  "location": {
+    "lat": 24.9123,
+    "lng": 67.0892
+  },
+  "social_text": "Urgent: Widespread flooding reported in Gulshan, Clifton, and Lyari! Major routes completely submerged!",
+  "rain_mm": 0.0,
+  "humidity": 80.0,
+  "congestion": 95.0
+}
