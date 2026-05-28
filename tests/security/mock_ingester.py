@@ -1,5 +1,5 @@
 """
-backend_swarm/mock_ingester.py
+src/mock_ingester.py
 
 AEGIS-OMNI MOCK DATA PIPELINE INGESTER
 ─────────────────────────────────────────────────────────────
@@ -8,18 +8,18 @@ Firestore's 'crisis_reports' collection at a controlled pace,
 mimicking a live multi-source signal feed.
 
 Usage (from Aegis-Omni-Master directory):
-    .\\backend_swarm\\venv\\Scripts\\python.exe backend_swarm\\mock_ingester.py
+    .\\src\\venv\\Scripts\\python.exe src\\mock_ingester.py
 
 The server (main_api.py) must be running to process these reports.
 The Curveball scenario (MOCK-CURVEBALL-003) is injected 3rd and will
 trigger the Zero-Trust ValidationSentinel automatically.
 """
 
+import json
+import logging
 import os
 import sys
-import json
 import time
-import logging
 from datetime import datetime, timezone
 
 import firebase_admin
@@ -88,7 +88,7 @@ def emit_scenario(scenario: dict, index: int):
     meta = scenario.get("_meta", {})
     is_curveball = "CURVEBALL" in doc_id.upper()
 
-    print(f"\n" + "-" * 60)
+    print("\n" + "-" * 60)
     # Safely encode label for Windows cp1252 terminals (strips non-encodable chars)
     safe_label = meta.get('label', 'N/A').encode('cp1252', errors='replace').decode('cp1252')
     print(f"  [{index+1}/{len(MOCK_SCENARIOS)}] Emitting: {doc_id}")

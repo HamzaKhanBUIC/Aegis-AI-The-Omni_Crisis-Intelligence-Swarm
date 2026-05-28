@@ -1,5 +1,5 @@
 """
-backend_swarm/agents/validator.py
+src/agents/validator.py
 
 Aegis-Omni Swarm — VALIDATION AGENT (Curveball Resolver)
 ──────────────────────────────────────────────────────────
@@ -7,14 +7,13 @@ Second node in the swarm pipeline. Acts as the Sovereign Zero-Trust Verification
 Sentinel that hunts for physical impossibilities and data contradictions.
 """
 
-import os
-import socket
 import http.client
 import json
 import logging
+import os
+import socket
 from typing import Any
 
-from dotenv import load_dotenv
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 
@@ -95,7 +94,7 @@ def run_validation_agent(state: dict[str, Any]) -> dict[str, Any]:
     and injects the corrected ground truth back into the swarm state.
     """
     logger.info("[VALIDATOR] Node activated. Beginning zero-trust cross-reference.")
-    
+
     incoming_signals = state.get("incoming_signals", {})
     reasoning_trace = list(state.get("reasoning_trace", []))
     current_classification = state.get("current_classification", {})
@@ -116,7 +115,7 @@ def run_validation_agent(state: dict[str, Any]) -> dict[str, Any]:
             # 2. Invoke LLM (Mirroring triage.py setup)
             system_msg = _VALIDATOR_SYSTEM_PROMPT
             human_msg = f"Verify this active operational payload: {json.dumps(fused_payload)}"
-            
+
             messages = [
                 {"role": "system", "content": system_msg},
                 {"role": "user", "content": human_msg}
@@ -127,13 +126,13 @@ def run_validation_agent(state: dict[str, Any]) -> dict[str, Any]:
                 max_tokens=512
             )
             raw_content = response.choices[0].message.content.strip()
-            
+
             # 3. Defensive Post-Processing / Clean Fences
             if raw_content.startswith("```"):
                 raw_content = raw_content.split("```")[1]
                 if raw_content.startswith("json"):
                     raw_content = raw_content[4:]
-            
+
             parsed_response = json.loads(raw_content.strip())
 
         except (TimeoutError, socket.timeout, http.client.RemoteDisconnected) as e:
@@ -164,7 +163,7 @@ def run_validation_agent(state: dict[str, Any]) -> dict[str, Any]:
 
     # 4. Mutate State & Apply Corrections
     updated_classification = current_classification.copy()
-    
+
     # If an anomaly was detected, override the triage results
     if parsed_response.get("verification_status") == "ANOMALY_DETECTED":
         updated_classification["crisis_type"] = parsed_response.get("corrected_crisis_type", "UNKNOWN_ANOMALY")

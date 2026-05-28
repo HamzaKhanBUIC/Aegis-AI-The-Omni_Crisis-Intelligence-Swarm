@@ -1,40 +1,54 @@
-# Hamza Imran
+# Aegis-AI Omni-Crisis Intelligence Swarm
 
-> **AI Automation & Systems Architect building autonomous agentic grids and enterprise orchestration pipelines.**
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Security](https://img.shields.io/badge/security-Zero_Trust-red)
 
----
+A sovereign, high-availability, agentic architecture for omni-crisis intelligence gathering, triage, and response orchestration.
 
-## 🚀 Core Technical Competencies
+## 🧠 System Topology
 
-### 🧠 AI Orchestration
-*   **Frameworks:** LangGraph, CrewAI, Multi-Agent Swarms
-*   **Integration:** OpenAI, Gemini, Ollama API integration and pipeline engineering
-*   **Architecture:** Zero-trust verification engines, parallel agent execution, RAG implementation
+```text
+[Citizen Sensors / IoT] --(REST/WebSockets)--> [FastAPI Gateway]
+                                                    |
+                                                    v
+[Zero-Trust Firewall] <----(Telemetry & Logs)---- [Data Fuser Node]
+                                                    |
+                                                    v
+                                          [Triage Engine Node]
+                                           /                 \
+                          (Conflict/Anomaly)                 (Clean Signal)
+                                /                                   \
+                 [Validation Analyst Node]                    [Predictive Cascade Node]
+                                \                                   /
+                                 \                                 /
+                                  ---->[Resource Allocator] <------
+                                                    |
+                                                    v
+                                         [Remediation Dispatch]
+```
 
-### ⚙️ Backend & Infrastructure
-*   **Languages:** Python (Advanced), Dart (Intermediate)
-*   **Web Frameworks:** FastAPI, Flask
-*   **Databases:** Vector Databases (Qdrant, Pinecone), PostgreSQL, Firestore
-*   **DevOps & Deployment:** Docker, Containerization, Sovereign local-first execution
+## 🛡️ Security Posture
 
-### 🛡️ Foundational Strengths
-*   **Security:** Network Security protocols, Zero-leak token protection architecture
-*   **Environments:** Linux, Self-hosting, Headless GPU server management
-*   **System Design:** Decentralized architecture, real-time telemetry fusion, fault-tolerant circuit breakers
+- **Zero-Trust Boundaries**: Agent-to-agent communication requires strict telemetry and signal validation.
+- **Guardrails**: Input vectors are systematically sanitized against chaos injections.
+- **Secrets Management**: No credentials ever touch disk storage directly in the repository.
 
----
+## 🚀 Quick Start (Poetry)
 
-## 🏆 Flagship Architecture
+1. **Install Dependencies**
+   ```bash
+   poetry install
+   ```
 
-### [Aegis-Omni: The Omni-Crisis Intelligence Swarm](Aegis-Omni-Master/)
-A sovereign, multi-agent AI swarm designed for metropolitan-scale predictive defense and zero-trust event validation.
-*   **The Blueprint:** Ingests chaotic multi-source crisis signals, fuses them against physical sensor telemetry, eliminates false alarms autonomously, and dispatches emergency resources.
-*   **Tech Stack:** Python, FastAPI, LangGraph, Llama-3-70B, Docker, Flutter.
+2. **Configure Environment**
+   ```bash
+   cp .env.example .env
+   # Add your specific HF_API_TOKEN and Service Account Keys
+   ```
 
-*(Explore the `Aegis-Omni-Master` directory for the comprehensive Master Documentation, swarm logic, and execution simulators).*
-
----
-
-## 📈 Engineering Philosophy
-
-I build for **production**. I believe in sovereign architectures, rigorous zero-trust validation, measurable performance metrics, and fail-safe execution. My multi-agent systems are designed not just to process data, but to autonomously reason, verify, and orchestrate real-world impact efficiently.
+3. **Launch the Swarm Gateway**
+   ```bash
+   poetry run uvicorn src.main_api:app --reload --host 0.0.0.0 --port 8000
+   ```

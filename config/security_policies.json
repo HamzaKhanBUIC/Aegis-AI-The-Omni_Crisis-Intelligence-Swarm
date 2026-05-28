@@ -1,0 +1,5 @@
+{
+  "max_request_rate": 100,
+  "blocked_ips": [],
+  "allowed_cross_origin_domains": ["https://admin.aegis-omni.com"]
+}

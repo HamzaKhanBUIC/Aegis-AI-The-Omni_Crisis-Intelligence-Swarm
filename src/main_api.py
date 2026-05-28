@@ -1,5 +1,5 @@
 """
-backend_swarm/main_api.py
+src/main_api.py
 
 AEGIS-OMNI SWARM GATEWAY · PRODUCTION ENGINE (EXPERT 2)
 ────────────────────────────────────────────────────────
@@ -13,28 +13,26 @@ Architectural Role:
 4. Maintains the definitive 'Antigravity' audit trail.
 """
 
-import os
-import sys
-import json
 import asyncio
 import logging
+import os
+import sys
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import Any, Dict, List
 
-import uvicorn
-from contextlib import asynccontextmanager
-from fastapi import FastAPI, BackgroundTasks, HTTPException, status, WebSocket, WebSocketDisconnect
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-
 import firebase_admin
+import uvicorn
+from fastapi import BackgroundTasks, FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import credentials, firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
+from pydantic import BaseModel, Field
 
 # ──────────────────────────────────────────────────────────────────────────────
 # SYSTEM PATH & ENGINE INTEGRATION
 # ──────────────────────────────────────────────────────────────────────────────
-# Add parent directory to sys.path to allow 'from backend_swarm...' imports
+# Add parent directory to sys.path to allow 'from src...' imports
 # as required by the elite Systems Architect specification.
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -42,24 +40,60 @@ if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
 try:
-    from backend_swarm.core_engine.graph import aegis_swarm_engine
+    from src.agents.graph import aegis_swarm_engine
 except ImportError as e:
     # Fallback to local import if the parent-path strategy fails in certain environments
-    logging.warning(f"[SYSTEM] Absolute import failed ({e}). Attempting relative core_engine import.")
-    from core_engine.graph import aegis_swarm_engine
+    logging.warning(f"[SYSTEM] Absolute import failed ({e}). Attempting relative import.")
+    from agents.graph import aegis_swarm_engine
+
+try:
+    from src.security.guardrails import sanitize_input
+except ImportError as e:
+    logging.warning(f"[SYSTEM] Absolute security import failed ({e}). Attempting relative import.")
+    from security.guardrails import sanitize_input
 
 # ──────────────────────────────────────────────────────────────────────────────
 # FIREBASE INITIALIZATION
 # ──────────────────────────────────────────────────────────────────────────────
-cred_path = os.path.join(current_dir, "serviceAccountKey.json")
+cred_path = os.getenv("FIREBASE_CREDENTIALS_PATH", os.path.join(parent_dir, "config", "serviceAccountKey.json"))
 if not os.path.exists(cred_path):
-    raise FileNotFoundError(f"CRITICAL: Firebase serviceAccountKey.json missing at {cred_path}")
+    # Don't strictly crash for now if it's missing in CI
+    logging.warning(f"Firebase serviceAccountKey.json missing at {cred_path}. Initializing MockFirestoreClient.")
+    
+    # Implement Mock Firestore Client for clean standalone spins
+    class MockFirestoreDocument:
+        def __init__(self, col_name, doc_id):
+            self.col_name = col_name
+            self.doc_id = doc_id
+        def update(self, data):
+            logging.info(f"[MOCK FIRESTORE] Updated doc '{self.doc_id}' in collection '{self.col_name}' with data: {data}")
+            return None
 
-if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_path)
-    firebase_admin.initialize_app(cred)
+    class MockFirestoreQuery:
+        def __init__(self, col_name):
+            self.col_name = col_name
+        def on_snapshot(self, callback):
+            logging.warning(f"[MOCK FIRESTORE] Snapshot listener attached to collection '{self.col_name}' (running in standalone simulation)")
+            return None
 
-db = firestore.client()
+    class MockFirestoreCollection:
+        def __init__(self, name):
+            self.name = name
+        def document(self, doc_id):
+            return MockFirestoreDocument(self.name, doc_id)
+        def where(self, *args, **kwargs):
+            return MockFirestoreQuery(self.name)
+
+    class MockFirestoreClient:
+        def collection(self, name):
+            return MockFirestoreCollection(name)
+            
+    db = MockFirestoreClient()
+else:
+    if not firebase_admin._apps:
+        cred = credentials.Certificate(cred_path)
+        firebase_admin.initialize_app(cred)
+    db = firestore.client()
 
 # ──────────────────────────────────────────────────────────────────────────────
 # LOGGING & AUDIT CONFIGURATION
@@ -134,25 +168,29 @@ async def run_swarm_orchestration(doc_id: str, input_text: str, weather: Weather
     audit logging, and Firestore writeback.
     """
     logger.info(f"🌀 Starting Swarm Orchestration for {doc_id}...")
-    
+
     try:
+        # 0. Pass through Security Guardrails
+        sanitized_input = sanitize_input(input_text)
+        logger.info(f"🛡️ Security Guardrails: Input checked. Raw: {repr(input_text)} | Sanitized: {repr(sanitized_input)}")
+
         # 1. Prepare State
-        initial_state = create_initial_state(doc_id, input_text, weather, traffic)
-        
+        initial_state = create_initial_state(doc_id, sanitized_input, weather, traffic)
+
         # 2. Invoke Engine (Expert 1)
         final_state = await aegis_swarm_engine.ainvoke(initial_state)
-        
+
         # 3. Audit Logger (The Judges' Trace)
         with open(TRACE_LOG_PATH, "a", encoding="utf-8") as log_file:
             log_file.write(f"\n--- SESSION: {doc_id} | {datetime.now(timezone.utc).isoformat()} ---\n")
             for trace_line in final_state.get("reasoning_trace", []):
                 log_file.write(f"{trace_line}\n")
-            log_file.write(f"--- END SESSION ---\n")
-        
+            log_file.write("--- END SESSION ---\n")
+
         # 4. Database Writeback
         classification = final_state.get("current_classification", {})
         dispatches = final_state.get("resource_dispatches", [])
-        
+
         db.collection("crisis_reports").document(doc_id).update({
             "status": "PROCESSED",
             "processed_by_ai": True,
@@ -161,9 +199,9 @@ async def run_swarm_orchestration(doc_id: str, input_text: str, weather: Weather
             "ai_processed_at": firestore.SERVER_TIMESTAMP,
             "threat_level": classification.get("severity", "LOW")
         })
-        
+
         logger.info(f"✅ Swarm completed for {doc_id}. Status: {classification.get('crisis_type')}")
-        
+
     except Exception as e:
         logger.error(f"❌ Swarm Execution Failure for {doc_id}: {str(e)}")
         # Fallback: Update DB with error status
@@ -239,15 +277,15 @@ async def submit_sentinel_signal(payload: SentinelPayload, background_tasks: Bac
     Uses BackgroundTasks for zero-lag client response.
     """
     logger.info(f"📥 Gateway Ingest: {payload.doc_id}")
-    
+
     background_tasks.add_task(
-        run_swarm_orchestration, 
-        payload.doc_id, 
-        payload.input_text, 
+        run_swarm_orchestration,
+        payload.doc_id,
+        payload.input_text,
         payload.weather,
         payload.traffic
     )
-    
+
     return {
         "status": "ACCEPTED",
         "trace_id": payload.doc_id,
@@ -265,20 +303,20 @@ def start_firebase_listener():
     Bridges thread-callback to the async event loop.
     """
     loop = asyncio.get_event_loop()
-    
+
     def on_snapshot(col_snapshot, changes, read_time):
         for change in changes:
             if change.type.name == "ADDED":
                 doc = change.document
                 data = doc.to_dict()
-                
+
                 # Filter for PENDING reports not yet processed
                 if data.get("status") == "PENDING" and not data.get("processed_by_ai"):
                     doc_id = doc.id
                     incident_type = data.get("incident_type") or "CITIZEN_REPORT"
                     description = data.get("description") or data.get("text") or ""
                     input_text = f"{incident_type}: {description}"
-                    
+
                     # Fetch telemetry with safe fallbacks
                     sensor_data = data.get("sensor_data") or {}
                     rain_mm = sensor_data.get("rain_mm")
@@ -286,10 +324,10 @@ def start_firebase_listener():
                         rain_mm = data.get("precipitation")
                     if rain_mm is None:
                         rain_mm = 0.0
-                        
+
                     humidity = sensor_data.get("humidity") or data.get("humidity") or 50.0
                     congestion = sensor_data.get("congestion") or data.get("congestion") or 10
-                    
+
                     weather = WeatherTelemetry(
                         precipitation=float(rain_mm),
                         humidity=float(humidity)
@@ -297,9 +335,9 @@ def start_firebase_listener():
                     traffic = TrafficTelemetry(
                         congestion_level=int(congestion)
                     )
-                    
+
                     logger.info(f"🔥 Firebase Signal Detected: {doc_id}")
-                    
+
                     # Bridge to Async Loop
                     asyncio.run_coroutine_threadsafe(
                         run_swarm_orchestration(doc_id, input_text, weather, traffic),

@@ -1,11 +1,11 @@
 import asyncio
-import sys
 import os
+import sys
 
 # ──────────────────────────────────────────────────────────────────────────────
 # SYSTEM PATH CONFIGURATION
 # ──────────────────────────────────────────────────────────────────────────────
-# Ensure the parent directory is in sys.path so we can import 'backend_swarm' 
+# Ensure the parent directory is in sys.path so we can import 'src'
 # as a package. This allows the import path specified in the request to function.
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -14,10 +14,10 @@ if parent_dir not in sys.path:
 
 # Import the compiled aegis_swarm_engine
 try:
-    from backend_swarm.core_engine.graph import aegis_swarm_engine
+    from src.agents.graph import aegis_swarm_engine
 except ImportError as e:
     print(f"Import Error: {e}")
-    print("Ensure you are running this script from the backend_swarm directory or have the parent directory in PYTHONPATH.")
+    print("Ensure you are running this script from the src directory or have the parent directory in PYTHONPATH.")
     sys.exit(1)
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -78,7 +78,7 @@ async def test_curveball_scenario():
         classification = final_state.get("current_classification", {})
         crisis_type = classification.get("crisis_type", "UNKNOWN")
         severity = classification.get("severity", "UNKNOWN")
-        
+
         print("\n" + "="*80)
         print(f" FINAL CRISIS TYPE : {crisis_type}")
         print(f" SEVERITY LEVEL    : {severity}")

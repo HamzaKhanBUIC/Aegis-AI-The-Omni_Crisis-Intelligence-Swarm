@@ -1,7 +1,7 @@
 import os
-import json
 import uuid
 from datetime import datetime, timezone
+
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -23,14 +23,14 @@ def submit_citizen_report():
     print("="*60)
     print(" 📱 AEGIS-OMNI CITIZEN REPORTING SIMULATOR ")
     print("="*60)
-    
+
     incident_type = input("Incident Type (e.g. URBAN_FLOODING, CIVIL_UNREST, STRUCTURAL_PANIC): ").strip()
     description = input("Describe the situation: ").strip()
-    
+
     print("\n[Optional] Inject Telemetry to test Verification:")
     rain_input = input("Rainfall in mm (press Enter for 0.0): ").strip()
     rain_mm = float(rain_input) if rain_input else 0.0
-    
+
     tilt_input = input("Structural Tilt Sensor (e.g. NORMAL, ABNORMAL - press Enter for NORMAL): ").strip()
     tilt_sensor = tilt_input.upper() if tilt_input else "NORMAL"
 
@@ -38,7 +38,7 @@ def submit_citizen_report():
     traffic_level = int(traffic_input) if traffic_input else 85
 
     doc_id = f"CITIZEN-REP-{uuid.uuid4().hex[:6].upper()}"
-    
+
     payload = {
         "incident_id": doc_id,
         "incident_type": incident_type,
@@ -53,10 +53,10 @@ def submit_citizen_report():
             "congestion": traffic_level
         }
     }
-    
+
     # Push to Firebase
     db.collection("crisis_reports").document(doc_id).set(payload)
-    
+
     print("\n✅ Report Submitted to Firebase!")
     print(f"Document ID: {doc_id}")
     print("Check your terminal running 'main_api.py' to watch the Swarm process this in real-time.")

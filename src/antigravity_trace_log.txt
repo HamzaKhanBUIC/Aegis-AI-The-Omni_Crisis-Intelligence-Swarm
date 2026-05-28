@@ -1,0 +1,37 @@
+
+--- SESSION: MOCK-CURVEBALL-003 | 2026-05-28T15:19:24.882896+00:00 ---
+[2026-05-28T15:19:24.867463+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-CURVEBALL-003
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] MOCK-MODE: Live AI disabled. Classification generated from deterministic keyword-matching rules.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='UNKNOWN' | severity='LOW' | affected_population=0 | confidence_score=0.30.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Low severity or false alarm detected. No cascading predictions required.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for UNKNOWN with severity level LOW.
+--- END SESSION ---
+
+--- SESSION: MOCK-CURVEBALL-003 | 2026-05-28T15:20:41.290801+00:00 ---
+[2026-05-28T15:20:41.272782+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-CURVEBALL-003
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] MOCK-MODE: Live AI disabled. Classification generated from deterministic keyword-matching rules.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='CATASTROPHIC' | affected_population=45000 | confidence_score=0.87.
+[VALIDATION_NODE] Status: ANOMALY_DETECTED | Justification: [FALLBACK ENGINE] Programmatic cross-reference triggered. Contradiction identified: Visual flood reports paired with 0.0mm sensor precipitation. Diagnostic: KWSB Main Line Rupture.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] Warning: Prediction engine error - Cannot select auto-router when using non-Hugging Face API key.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---
+
+--- SESSION: MOCK-CURVEBALL-FINAL | 2026-05-28T15:22:10.021791+00:00 ---
+[2026-05-28T15:22:10.005254+00:00] [INGEST] Signal received from gateway boundary. Trace ID: MOCK-CURVEBALL-FINAL
+[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).
+[TRIAGE · STEP 1] Received incoming_signals with 1 source(s): ['gateway_fused'].
+[TRIAGE · STEP 2] MOCK-MODE: Live AI disabled. Classification generated from deterministic keyword-matching rules.
+[TRIAGE · STEP 4] Final classification validated. crisis_type='FLOODING' | severity='CATASTROPHIC' | affected_population=45000 | confidence_score=0.87.
+[VALIDATION_NODE] Status: ANOMALY_DETECTED | Justification: [FALLBACK ENGINE] Programmatic cross-reference triggered. Contradiction identified: Visual flood reports paired with 0.0mm sensor precipitation. Diagnostic: KWSB Main Line Rupture.
+[PREDICT_CASCADE_NODE] Analyzing current incident to predict secondary infrastructural impacts.
+[PREDICT_CASCADE_NODE] MOCK: Predicted 3 secondary cascading threats for INFRASTRUCTURE_BURST_PIPE.
+[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for INFRASTRUCTURE_BURST_PIPE with severity level MEDIUM.
+[RESOURCE_ALLOCATOR_NODE] Dispatched: KWSB Heavy Repair Squad Alpha routed to rupture site.
+--- END SESSION ---

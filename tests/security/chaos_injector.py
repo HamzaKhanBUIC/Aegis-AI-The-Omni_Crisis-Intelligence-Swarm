@@ -8,13 +8,14 @@ scenarios directly into the Firestore 'crisis_reports' collection.
 Designed to test the async responsiveness of the Swarm Intelligence backend.
 """
 
-import os
-import json
 import asyncio
-import logging
+import json
+import os
 from datetime import datetime
+
 import firebase_admin
 from firebase_admin import credentials, firestore
+
 
 # --- STYLIZED TERMINAL OUTPUT ---
 class Colors:
@@ -67,14 +68,14 @@ async def inject_chaos():
     for payload in payloads:
         # Update timestamp to current to keep it 'real-time'
         payload['timestamp'] = datetime.utcnow().isoformat() + 'Z'
-        
+
         # Inject into 'crisis_reports' (The collection the Swarm Listener is watching)
         doc_ref = db.collection('crisis_reports').document(payload['incident_id'])
         doc_ref.set(payload)
-        
+
         # Stylized confirmation
         print_missile_launch(payload['incident_id'], payload['incident_type'])
-        
+
         # Simulate rapid spike with a 2-second delay
         await asyncio.sleep(2)
 

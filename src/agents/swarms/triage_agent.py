@@ -1,5 +1,5 @@
 """
-backend_swarm/agents/triage.py
+src/agents/triage.py
 
 Aegis-Omni Swarm — TRIAGE AGENT  (Master Triage Director · Karachi)
 ─────────────────────────────────────────────────────────────────────
@@ -14,14 +14,14 @@ State contract (keys read / written):
   WRITE : current_classification (dict), reasoning_trace (list[str])
 """
 
-import os
+import http.client
 import json
 import logging
+import os
+import socket
 from typing import Any
 
 from dotenv import load_dotenv
-import socket
-import http.client
 from huggingface_hub import InferenceClient
 
 load_dotenv()
@@ -106,9 +106,10 @@ def _mock_triage_classification(incoming_signals: dict) -> dict:
         "[TRIAGE] MOCK-MODE ACTIVE — Hugging Face API bypassed. "
         "Returning deterministic demo data."
     )
-    social_text: str = str(
-        incoming_signals.get("social_text", "")
-    ).lower()
+    social_text = incoming_signals.get("social_text", "")
+    if not social_text and "gateway_fused" in incoming_signals:
+        social_text = incoming_signals["gateway_fused"].get("social_text", "")
+    social_text = str(social_text).lower()
 
     if any(kw in social_text for kw in ["flood", "paani", "barish", "water"]):
         return {

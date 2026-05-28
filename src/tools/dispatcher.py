@@ -1,7 +1,7 @@
 import hashlib
 import logging
 import time
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 from uuid import UUID
 
 # Mock import for Firebase to prevent execution failure if not installed in the workspace
@@ -41,11 +41,11 @@ class MockFirestoreDb:
     def collection(self, name):
         self.collection_name = name
         return self
-        
+
     def document(self, doc_id):
         self.doc_id = doc_id
         return self
-        
+
     def set(self, data):
         logger.info(f"[Firestore MOCK] Data saved successfully to {self.collection_name}/{self.doc_id}")
 
@@ -70,11 +70,11 @@ def simulate_loan_disbursement(user_id: str, amount: float) -> Dict[str, Any]:
     Demonstrates immediate financial relief processing during a verified crisis.
     """
     logger.info(f"Initiating BackupLoan for user {user_id} - Amount: Rs. {amount}")
-    
+
     # Generate a mock blockchain-style transaction hash
     timestamp = str(time.time()).encode('utf-8')
     tx_hash = hashlib.sha256(user_id.encode('utf-8') + timestamp).hexdigest()
-    
+
     return {
         "status": "success",
         "transaction_hash": f"0x{tx_hash}",
@@ -88,16 +88,16 @@ def initiate_backup_loan(target_area: str) -> List[Dict[str, Any]]:
     In a real scenario, this would query a localized demographic database.
     """
     logger.info(f"Triggering Area-Wide Fin-Resilience for: {target_area}")
-    
+
     # Mock affected users in the designated area
     mock_affected_users = [f"user_{target_area}_001", f"user_{target_area}_002"]
     standard_relief_amount = 50000.0 # Example: 50,000 PKR
-    
+
     transactions = []
     for user in mock_affected_users:
         tx_receipt = simulate_loan_disbursement(user, standard_relief_amount)
         transactions.append(tx_receipt)
-        
+
     return transactions
 
 class CascadingFailureHandler:
@@ -144,15 +144,15 @@ def dispatch_crisis_response(signal_id: UUID, confidence_score: int, is_verified
     Receives verified signals and triggers the appropriate real-world response and Fin-Resilience.
     """
     logger.info(f"Dispatcher received signal: {signal_id} | Verified: {is_verified} | Confidence: {confidence_score}")
-    
+
     db = get_firestore_client()
-    
+
     # Initialize the reasoning trace for transparency
     reasoning_trace = [
         "Step 1: Detected social panic via incoming payload.",
         f"Step 2: Cross-referenced IoT telemetry data (Confidence: {confidence_score}%)."
     ]
-    
+
     response_payload = {
         "signal_id": str(signal_id),
         "domain": domain_routing,
@@ -170,12 +170,12 @@ def dispatch_crisis_response(signal_id: UUID, confidence_score: int, is_verified
         logger.critical(f"[{signal_id}] SEVERE CRISIS VERIFIED. Initiating Dispatch Protocols.")
         response_payload["status"] = "active_response"
         reasoning_trace.append(f"Step 3: Verified {domain_routing} crisis. Risk threshold exceeded.")
-        
+
         # 1. Trigger Cascading Failure Responses
         cascade_handler = CascadingFailureHandler()
         cascade_result = cascade_handler.process_cascade(domain_routing, signal_id)
         response_payload["cascading_actions"] = cascade_result.get("actions", [])
-        
+
         # 2. Trigger Fin-Resilience (BackupLoans)
         reasoning_trace.append("Step 4: Disbursing emergency Fin-Resilience funds (BackupLoans) to affected sectors.")
         target_area = "Karachi_South"  # Hardcoded localization for initial deployment
@@ -202,14 +202,14 @@ if __name__ == "__main__":
     import argparse
     import json
     import uuid
-    
+
     parser = argparse.ArgumentParser(description="Aegis-Omni Core Dispatcher")
     parser.add_argument("--payload", type=str, help="Mock payload ID to dispatch")
     args = parser.parse_args()
 
     if args.payload:
         test_signal_id = uuid.uuid4()
-        
+
         if args.payload == "flood_01":
             print(f"\n--- Testing Dispatcher with Payload: {args.payload} ---")
             result = dispatch_crisis_response(

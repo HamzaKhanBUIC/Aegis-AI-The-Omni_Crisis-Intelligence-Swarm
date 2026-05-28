@@ -1,20 +1,22 @@
 """
-backend_swarm/core_engine/graph.py
+src/core_engine/graph.py
 
 Aegis-Omni Swarm — LANGGRAPH ORCHESTRATION ENGINE
 ──────────────────────────────────────────────────
 Wires the sovereign agents into a directed, stateful pipeline.
 """
 
-import json
 import logging
 from typing import Any, Dict, List, TypedDict
-from langgraph.graph import StateGraph, END
+
+from langgraph.graph import END, StateGraph
+
+from src.agents.swarms.analyst_agent import run_validation_agent
+from src.agents.swarms.remediation_agent import run_predict_cascade
 
 # Import the nodes we've built
-from backend_swarm.agents.triage import run_triage_agent
-from backend_swarm.agents.validator import run_validation_agent
-from backend_swarm.agents.predictor import run_predict_cascade
+from src.agents.swarms.triage_agent import run_triage_agent
+
 # The dispatcher/allocator logic is handled by the ResourceAllocatorNode below
 
 logger = logging.getLogger("AegisSwarm.Graph")
@@ -43,7 +45,7 @@ def run_data_fuser(state: AgentState) -> Dict[str, Any]:
     """
     trace = list(state.get("reasoning_trace", []))
     trace.append("[DATA_FUSER_NODE] Normalizing incoming multi-source vector streams (Social, Weather, Telemetry).")
-    
+
     # Ensure signals are formatted for the agents
     # If the input was a single dict, we wrap it
     return {"reasoning_trace": trace}
@@ -55,12 +57,12 @@ def run_resource_allocator(state: AgentState) -> Dict[str, Any]:
     classification = state.get("current_classification", {})
     trace = list(state.get("reasoning_trace", []))
     dispatches = list(state.get("resource_dispatches", []))
-    
+
     crisis_type = classification.get("crisis_type", "UNKNOWN")
     severity = classification.get("severity", "LOW")
-    
+
     trace.append(f"[RESOURCE_ALLOCATOR_NODE] Optimizing logistics for {crisis_type} with severity level {severity}.")
-    
+
     # Simple deterministic asset allocation logic for the demo
     if crisis_type == "INFRASTRUCTURE_BURST_PIPE":
         dispatch_payload = {
@@ -79,7 +81,7 @@ def run_resource_allocator(state: AgentState) -> Dict[str, Any]:
             "objective": "Standard monitoring standby."
         }
         dispatches.append(dispatch_payload)
-        
+
     return {
         "resource_dispatches": dispatches,
         "reasoning_trace": trace
@@ -99,7 +101,7 @@ def route_after_triage(state: AgentState) -> str:
     classification = state.get("current_classification", {})
     telemetry = state.get("sensor_telemetry", {})
     trace = list(state.get("reasoning_trace", []))
-    
+
     crisis_type = classification.get("crisis_type", "").upper()
     severity = classification.get("severity", "").upper()
     # Check both possible keys for rain
@@ -109,13 +111,13 @@ def route_after_triage(state: AgentState) -> str:
     if "FLOOD" in crisis_type and severity in ["HIGH", "CATASTROPHIC"] and rain == 0.0:
         trace.append("[ROUTE_MANAGER] CRITICAL DISCREPANCY DETECTED: Social panic mismatched with sensor telemetry. Executing Curveball Route to ValidationSentinel.")
         return "trigger_validation"
-        
+
     # Curveball logic: Social reports structural tilt/fire, but sensors are normal
     tilt_sensor = telemetry.get("tilt_sensor_reading", "").upper()
     if "STRUCTURAL" in crisis_type and tilt_sensor == "NORMAL":
         trace.append("[ROUTE_MANAGER] CRITICAL DISCREPANCY DETECTED: Social panic of structural failure mismatched with normal sensor telemetry. Executing Curveball Route to ValidationSentinel.")
         return "trigger_validation"
-        
+
     trace.append("[ROUTE_MANAGER] Data channels aligned. Proceeding directly to PredictCascadeNode.")
     return "trigger_allocation"
 
@@ -174,11 +176,11 @@ def execute_swarm_workflow(initial_state: Dict[str, Any]) -> Dict[str, Any]:
             "reasoning_trace": initial_state.get("decision_log", []),
             "sensor_telemetry": initial_state.get("sensor_telemetry", {})
         }
-        
-        # In this new architecture, incoming_signals might need to be populated 
+
+        # In this new architecture, incoming_signals might need to be populated
         # from the social_panic and incident_type in main_api.py
         # For now, we trust the input dictionary mapping
-        
+
         final_state = aegis_swarm_engine.invoke(state)
         logger.info(f"[SWARM_ENGINE] Execution successful. Final classification: {final_state.get('current_classification', {}).get('crisis_type')}")
         return final_state

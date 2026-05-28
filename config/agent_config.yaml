@@ -1,0 +1,9 @@
+triage_agent:
+  model: "llama-3-70b-instruct"
+  temperature: 0.1
+analyst_agent:
+  model: "gpt-4-turbo"
+  temperature: 0.2
+remediation_agent:
+  model: "claude-3-opus"
+  temperature: 0.0
