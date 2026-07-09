@@ -3,7 +3,7 @@
 # Builds a production-grade container for the FastAPI + LangGraph backend.
 # ──────────────────────────────────────────────────────────────────────────────
 
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # Set environment
 ENV PYTHONDONTWRITEBYTECODE=1 \
