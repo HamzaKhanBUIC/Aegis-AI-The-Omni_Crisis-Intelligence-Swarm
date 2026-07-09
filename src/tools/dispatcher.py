@@ -7,7 +7,7 @@ from uuid import UUID
 # Mock import for Firebase to prevent execution failure if not installed in the workspace
 try:
     import firebase_admin
-    from firebase_admin import credentials, firestore
+    from firebase_admin import firestore
 except ImportError:
     firebase_admin = None
     firestore = None
