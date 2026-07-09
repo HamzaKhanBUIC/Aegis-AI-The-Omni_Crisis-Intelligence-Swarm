@@ -1,0 +1,12 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include SECURITY.md
+include .env.example
+include pyproject.toml
+include pytest.ini
+recursive-include src *.py
+recursive-include tests *.py
+recursive-include config *.yaml *.json
+recursive-include deploy *.yml Dockerfile
