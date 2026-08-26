@@ -1,249 +1,150 @@
-# Aegis-AI Omni-Crisis Intelligence Swarm
+# Aegis-AI: Sovereign Multi-Agent Crisis Intelligence Swarm
 
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
-![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Security](https://img.shields.io/badge/security-Zero_Trust-red)
-[![CI/CD](https://github.com/yourusername/aegis-omni/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/yourusername/aegis-omni/actions/workflows/ci-cd.yml)
-[![Security Scan](https://github.com/yourusername/aegis-omni/actions/workflows/security-scan.yml/badge.svg)](https://github.com/yourusername/aegis-omni/actions/workflows/security-scan.yml)
+> Autonomous multi-agent coordination swarm designed for urban crisis triage, real-time resource routing, and edge communications across partitioned networks.
 
-> **Sovereign, multi-agent AI swarm designed for metropolitan-scale predictive defense and zero-trust event validation.**
-
-A sovereign, high-availability, agentic architecture for omni-crisis intelligence gathering, triage, and response orchestration.
-
-## 📋 Table of Contents
-
-- [Architecture Overview](#-architecture-overview)
-- [Key Capabilities](#-key-capabilities)
-- [Technical Stack](#-technical-stack)
-- [Quick Start](#-quick-start)
-- [Deployment](#-deployment)
-- [Configuration](#-configuration)
-- [API Documentation](#-api-documentation)
-- [Testing](#-testing)
-- [Security](#-security)
-- [Contributing](#-contributing)
-- [License](#-license)
-
-## 🧠 Architecture Overview
-
-```
-[Citizen Sensors / IoT] --(REST/WebSockets)--> [FastAPI Gateway]
-                                                    |
-                                                    v
-[Zero-Trust Firewall] <----(Telemetry & Logs)---- [Data Fuser Node]
-                                                    |
-                                                    v
-                                          [Triage Engine Node]
-                                           /                 \
-                          (Conflict/Anomaly)                 (Clean Signal)
-                                /                                   \
-                 [Validation Analyst Node]                    [Predictive Cascade Node]
-                                \                                   /
-                                 \                                 /
-                                  ---->[Resource Allocator] <------
-                                                    |
-                                                    v
-                                         [Remediation Dispatch]
-```
-
-### System Components
-
-- **FastAPI Gateway**: REST and WebSocket entry point for all citizen sensor data
-- **Data Fuser Node**: Normalizes multi-source signals (text, telemetry, sensors)
-- **Triage Engine**: Real-time crisis severity classification
-- **Validation Analyst**: Zero-trust corroboration to eliminate false positives
-- **Predictive Cascade**: Anticipates secondary effects and resource needs
-- **Resource Allocator**: Dynamic emergency resource orchestration
-
-## ⚡ Key Capabilities
-
-- **Edge Execution**: Zero-latency, localized data processing for critical real-time decision making
-- **Parallel Agent Processing**: Simultaneous evaluation by multiple agent nodes (Triage, Validation, Allocation)
-- **Zero-Trust Verification**: Autonomous multi-source corroboration to eliminate false positives and noise
-- **Autonomous Resource Orchestration**: Dynamic generation of coordinated response actions and routing
-- **Multi-Source Signal Fusion**: Ingests noisy citizen reports alongside rigid physical sensor telemetry
-- **Action Simulation Pipeline**: High-fidelity execution simulator with instant edge node alerts
-
-## 🛠️ Technical Stack
-
-| Component | Technology |
-|-----------|------------|
-| **AI Orchestration** | LangGraph, Custom Multi-Agent Swarms |
-| **LLM Models** | Llama-3-70B, Google Gemini |
-| **Backend Framework** | FastAPI (Python 3.10+) |
-| **Database** | Firebase Firestore |
-| **Containerization** | Docker, Docker Compose |
-| **Frontend** | Flutter (Web & Mobile) |
-| **Security** | Zero-Trust Architecture, Input Guardrails |
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Python 3.10+
-- Poetry (dependency management)
-- Docker & Docker Compose (optional, for containerized deployment)
-- Hugging Face API token (for LLM access)
-- Firebase service account credentials
-
-### Installation
-
-#### Option 1: Poetry (Recommended for Development)
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/aegis-omni.git
-cd aegis-omni
-
-# Install dependencies
-poetry install
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your HF_API_TOKEN and Firebase credentials
-
-# Run the swarm gateway
-poetry run uvicorn src.main_api:app --reload --host 0.0.0.0 --port 8000
-```
-
-#### Option 2: Docker (Production Deployment)
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/aegis-omni.git
-cd aegis-omni
-
-# Configure environment
-cp .env.example .env
-# Add your credentials
-
-# Build and deploy
-docker-compose -f deploy/docker-compose.yml up --build
-```
-
-Access the API at `http://localhost:8000` and view docs at `http://localhost:8000/docs`.
-
-## 🏗️ Deployment
-
-### Production Configuration
-
-1. **Set environment variables** in `.env`:
-   ```env
-   HF_API_TOKEN="your_huggingface_token"
-   FIREBASE_CREDENTIALS_PATH="./config/serviceAccountKey.json"
-   USE_LIVE_AI="True"
-   ```
-
-2. **Place Firebase credentials** at `config/serviceAccountKey.json`
-
-3. **Deploy with Docker Compose**:
-   ```bash
-   docker-compose -f deploy/docker-compose.yml up -d
-   ```
-
-### Health Checks
-
-The system includes built-in health monitoring:
-- `/health` - Basic health endpoint
-- `/health/detailed` - Detailed system status with agent states
-
-## 🔧 Configuration
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `HF_API_TOKEN` | Hugging Face API token for LLM access | Required |
-| `FIREBASE_CREDENTIALS_PATH` | Path to Firebase service account JSON | `./config/serviceAccountKey.json` |
-| `USE_LIVE_AI` | Enable live LLM inference (False = mock mode) | `True` |
-| `LOG_LEVEL` | Logging verbosity | `INFO` |
-
-### Agent Configuration
-
-Edit `config/agent_config.yaml` to customize:
-- Agent behavior thresholds
-- Triage priority rules
-- Resource allocation policies
-
-## 📚 API Documentation
-
-Once running, access interactive API documentation:
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
-
-### Key Endpoints
-
-- `POST /api/v1/report` - Submit crisis report
-- `GET /api/v1/events` - List active events
-- `WS /ws/telemetry` - WebSocket for real-time telemetry
-- `GET /health` - Health check
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-poetry run pytest
-
-# Run with coverage
-poetry run pytest --cov=src
-
-# Run specific test categories
-poetry run pytest tests/unit/
-poetry run pytest tests/integration/
-poetry run pytest tests/security/
-```
-
-## 🛡️ Security
-
-### Security Posture
-
-- **Zero-Trust Boundaries**: Agent-to-agent communication requires strict telemetry and signal validation
-- **Input Guardrails**: All input vectors are systematically sanitized against chaos injections
-- **Secrets Management**: No credentials ever touch disk storage directly in the repository
-- **Automated Scanning**: Daily security scans via GitHub Actions
-
-### Security Best Practices
-
-1. Never commit `.env` files or service account keys
-2. Rotate API tokens regularly
-3. Review security scan reports in GitHub Actions
-4. Use `tests/security/chaos_injector.py` for penetration testing
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Please ensure:
-- Code passes linting (`poetry run ruff check src/`)
-- Tests pass (`poetry run pytest`)
-- Documentation is updated as needed
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- LangGraph team for the orchestration framework
-- Hugging Face for model access
-- Firebase for real-time database infrastructure
-
-## 📞 Support
-
-For issues and questions:
-- Create an issue on GitHub
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python)](https://www.python.org/)
+[![Flutter 3.x](https://img.shields.io/badge/Flutter-3.x-02569B.svg?logo=flutter)](https://flutter.dev/)
+[![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-purple.svg)](https://github.com/langchain-ai/langgraph)
+[![Llama-3-70B](https://img.shields.io/badge/LLM-Llama--3--70B-FF9D00.svg)](https://huggingface.co/meta-llama/Meta-Llama-3-70B)
 
 ---
 
-<div align="center">
+## Overview
 
-**Aegis-AI Omni-Crisis Intelligence Swarm** · Built with sovereignty and zero-trust principles
+During large-scale urban emergencies—such as severe flooding, seismic events, or localized grid blackouts—centralized emergency management centers face two critical points of failure: **severe communication bottlenecks** and **high cognitive load on human dispatchers**. 
 
-</div>
+**Aegis-AI** addresses these limitations by providing a decentralized, multi-agent intelligence runtime. It ingests heterogeneous incident feeds (sensor telemetry, civilian voice/text reports, field status logs), constructs an evolving topological crisis graph, and routes actionable response plans directly to tactical mobile clients operated by first responders.
+
+---
+
+## Problem
+
+- **Decision Latency**: Traditional manual dispatch takes 15–45 minutes to cross-verify multi-agency reports during high-entropy events.
+- **Network Partitioning**: Field teams frequently lose persistent broadband connectivity, rendering cloud-dependent emergency portals inaccessible.
+- **Conflicting Telemetry**: Disaster reports frequently contain duplicate or conflicting incident reports from civilians.
+
+---
+
+## Solution & Architectural Workflow
+
+Aegis-AI models the crisis response lifecycle as a stateful directed acyclic graph (DAG) using **LangGraph**. Individual specialized agent nodes evaluate incident severity, verify geographic constraints, calculate evacuation routes, and synthesize tactical dispatches.
+
+```mermaid
+graph TD
+    subgraph Ingestion & Normalization
+        A[Multimodal Incident Feeds] --> B[Telemetry Normalizer]
+        B --> C[Incident Priority Queue]
+    end
+
+    subgraph LangGraph Multi-Agent Runtime
+        C --> D{Crisis Triage Agent}
+        D -->|Medical Emergency| E[Medical Resource Allocation Agent]
+        D -->|Infrastructure / Flood| F[Hazard Route Optimization Agent]
+        D -->|Civilian Evacuation| G[Civilian Safety & Shelter Agent]
+        E --> H[State Aggregator & Verifier]
+        F --> H
+        G --> H
+    end
+
+    subgraph Tactical Output Layer
+        H --> I[Flutter Tactical Mobile Client]
+        H --> J[Incident Command Dashboard]
+        H --> K[Immutable Trace Log]
+    end
+```
+
+---
+
+## Core Components
+
+1. **Crisis Triage Node (`src/agents/assessment/`)**: Extracts severity metrics, casualty estimates, and required agency capabilities from raw unstructured reports using Llama-3-70B.
+2. **Hazard Routing Engine (`src/agents/routing/`)**: Graph-based pathfinding dynamically avoiding reported road collapses, flooding vectors, and electrical hazards.
+3. **State Engine (`src/core/state.py`)**: Manages persistent conversation state, agent scratchpads, and execution checkpoints using LangGraph state graphs.
+4. **Tactical Mobile Client (`Aegis-Omni-Master/`)**: Offline-capable Flutter application caching local sector maps and displaying prioritized task checklists for first responders.
+
+---
+
+## Technology Stack
+
+- **Agent Runtime**: Python 3.11+, LangGraph, LangChain, Poetry
+- **LLM Foundation**: Meta Llama-3-70B (Hugging Face Inference API / Local Ollama instance)
+- **Mobile Client**: Flutter 3.x, Dart, Provider state management
+- **Testing & Quality**: Pytest, Pre-commit hooks, Flake8 linting
+
+---
+
+## Repository Structure
+
+```
+.
+├── src/
+│   ├── agents/               # Specialized triage and routing agent definitions
+│   ├── core/                 # LangGraph state machines and configuration
+│   ├── schemas/              # Pydantic data contracts for incidents and telemetry
+│   └── utils/                # Geocoding helpers and trace logging
+├── Aegis-Omni-Master/        # Tactical Flutter mobile application codebase
+├── config/                   # Prompts, agent system instructions, and schemas
+├── tests/                    # Unit and graph execution test suite
+├── Antigravity_prompts_usage.mp4  # Execution demonstration video
+├── pyproject.toml            # Poetry project dependencies and build configuration
+└── pytest.ini                # Pytest runtime configuration
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python 3.11 or higher
+- [Poetry](https://python-poetry.org/) package manager
+- Flutter SDK (optional, for mobile client compilation)
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/HamzaKhanBUIC/Aegis-AI-The-Omni_Crisis-Intelligence-Swarm.git
+cd Aegis-AI-The-Omni_Crisis-Intelligence-Swarm
+
+# Install dependencies via Poetry
+poetry install
+
+# Set up environment configuration
+cp .env.example .env
+```
+
+### Configuration
+Edit `.env` to configure your LLM endpoint:
+```env
+HUGGINGFACE_API_KEY=your_api_key_here
+LLM_MODEL_NAME=meta-llama/Meta-Llama-3-70B-Instruct
+ENVIRONMENT=development
+LOG_LEVEL=INFO
+```
+
+### Running the Test Suite
+```bash
+# Execute unit tests and agent state transitions
+poetry run pytest tests/ -v
+```
+
+---
+
+## Security & Reliability Considerations
+
+- **Graceful Fallback**: If remote LLM endpoints become unreachable, agents automatically fall back to deterministic regex and rule-based heuristic routing.
+- **Audit Trails**: Every agent decision and state modification is serialized to an append-only JSON log file for post-incident retrospective analysis.
+- **No Hardcoded Credentials**: API tokens and service endpoints are strictly injected via environment variables.
+
+---
+
+## Limitations & Current Status
+
+- **Edge Deployment**: While the Flutter client runs offline, local LLM execution requires at least 16GB of unified memory or a dedicated edge accelerator.
+- **Network Sync**: Peer-to-peer mesh synchronization between mobile clients currently requires a local Wi-Fi / ad-hoc network connection.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
