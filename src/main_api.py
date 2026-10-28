@@ -23,7 +23,7 @@ from typing import Any, Dict, List
 
 import firebase_admin
 import uvicorn
-from fastapi import BackgroundTasks, FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import BackgroundTasks, Depends, FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import credentials, firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
@@ -51,6 +51,28 @@ try:
 except ImportError as e:
     logging.warning(f"[SYSTEM] Absolute security import failed ({e}). Attempting relative import.")
     from security.guardrails import sanitize_input
+
+try:
+    from src.security.api_guard import (
+        BodySizeLimitMiddleware,
+        cors_options,
+        enforce_ingest_rate_limit,
+        ingest_rate_limiter_from_env,
+        listener_rate_limiter_from_env,
+        max_body_bytes_from_env,
+        verify_ingest_api_key,
+    )
+except ImportError as e:
+    logging.warning(f"[SYSTEM] Absolute api_guard import failed ({e}). Attempting relative import.")
+    from security.api_guard import (
+        BodySizeLimitMiddleware,
+        cors_options,
+        enforce_ingest_rate_limit,
+        ingest_rate_limiter_from_env,
+        listener_rate_limiter_from_env,
+        max_body_bytes_from_env,
+        verify_ingest_api_key,
+    )
 
 # ──────────────────────────────────────────────────────────────────────────────
 # FIREBASE INITIALIZATION
@@ -123,12 +145,17 @@ class SocialSignal(BaseModel):
     text: str
     source: str = "social"
 
+# Matches the crisis_reports text limit in Aegis-Omni-Master/firestore.rules
+MAX_INPUT_CHARS = 2000
+
 class SentinelPayload(BaseModel):
-    doc_id: str = Field(..., description="Unique Trace ID for the incident")
-    input_text: str
+    # Plain IDs only: a '/' would let the caller address another Firestore path.
+    doc_id: str = Field(..., min_length=1, max_length=128, pattern=r"^[A-Za-z0-9_-]+$",
+                        description="Unique Trace ID for the incident")
+    input_text: str = Field(..., min_length=1, max_length=MAX_INPUT_CHARS)
     weather: WeatherTelemetry = Field(default_factory=WeatherTelemetry)
     traffic: TrafficTelemetry = Field(default_factory=TrafficTelemetry)
-    metadata: Dict[str, Any] = Field(default_factory=dict)
+    metadata: Dict[str, Any] = Field(default_factory=dict, max_length=20)
 
 def create_initial_state(doc_id: str, input_text: str, weather: WeatherTelemetry, traffic: TrafficTelemetry) -> Dict[str, Any]:
     """
@@ -224,13 +251,13 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Aegis-Omni Sovereign Gateway", version="2.0.0", lifespan=lifespan)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], # Tighten this up for production, but leave wide open for initial deployment
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Per-client-IP limiter for the paid-LLM ingest route (in-memory, per process).
+app.state.ingest_limiter = ingest_rate_limiter_from_env()
+app.add_middleware(BodySizeLimitMiddleware, max_bytes=max_body_bytes_from_env())
+
+# Explicit origin allow-list from ALLOWED_ORIGINS (comma-separated). Unset means no
+# cross-origin browser access; '*' is never accepted and no credentials are allowed.
+app.add_middleware(CORSMiddleware, **cors_options(os.getenv("ALLOWED_ORIGINS")))
 
 # ──────────────────────────────────────────────────────────────────────────────
 # WEBSOCKET CONNECTION MANAGER
@@ -270,11 +297,17 @@ async def swarm_stream(websocket: WebSocket):
 # REST API ENDPOINTS
 # ──────────────────────────────────────────────────────────────────────────────
 
-@app.post("/api/v1/sentinel/submit", tags=["Ingestion"])
+@app.post(
+    "/api/v1/sentinel/submit",
+    tags=["Ingestion"],
+    # Rate limit first so API-key guessing is throttled too.
+    dependencies=[Depends(enforce_ingest_rate_limit), Depends(verify_ingest_api_key)],
+)
 async def submit_sentinel_signal(payload: SentinelPayload, background_tasks: BackgroundTasks):
     """
     REST Boundary: Receives telemetry and citizens reports.
     Uses BackgroundTasks for zero-lag client response.
+    Requires the X-API-Key header (AEGIS_INGEST_API_KEY); server-to-server only.
     """
     logger.info(f"📥 Gateway Ingest: {payload.doc_id}")
 
@@ -303,6 +336,9 @@ def start_firebase_listener():
     Bridges thread-callback to the async event loop.
     """
     loop = asyncio.get_event_loop()
+    # Clients can create PENDING reports directly in Firestore, which bypasses the
+    # REST auth above, so cap how many paid swarm runs the listener may start.
+    listener_limiter = listener_rate_limiter_from_env()
 
     def on_snapshot(col_snapshot, changes, read_time):
         for change in changes:
@@ -338,6 +374,10 @@ def start_firebase_listener():
 
                     logger.info(f"🔥 Firebase Signal Detected: {doc_id}")
 
+                    if not listener_limiter.allow("firestore-listener"):
+                        logger.warning(f"Swarm listener rate cap reached; leaving {doc_id} PENDING.")
+                        continue
+
                     # Bridge to Async Loop
                     asyncio.run_coroutine_threadsafe(
                         run_swarm_orchestration(doc_id, input_text, weather, traffic),
@@ -354,4 +394,5 @@ def start_firebase_listener():
 # ──────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Loopback by default; set HOST=0.0.0.0 explicitly inside a container.
+    uvicorn.run(app, host=os.getenv("HOST", "127.0.0.1"), port=int(os.getenv("PORT", "8000")))

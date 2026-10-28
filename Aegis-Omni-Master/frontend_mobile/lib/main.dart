@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
 import 'screens/main_navigation_holder.dart';
 
@@ -12,6 +13,15 @@ void main() async {
     );
   } catch (e) {
     debugPrint('Firebase not fully configured yet. Loading UI anyway... $e');
+  }
+  // Firestore rules only accept citizen reports from a signed-in user, so each
+  // install gets an anonymous uid (enable Anonymous in Firebase Auth).
+  try {
+    if (FirebaseAuth.instance.currentUser == null) {
+      await FirebaseAuth.instance.signInAnonymously();
+    }
+  } catch (e) {
+    debugPrint('Anonymous sign-in failed; report submission will be denied. $e');
   }
   runApp(const ProviderScope(child: AegisOmniApp()));
 }
