@@ -1,7 +1,7 @@
 """
 src/security/api_guard.py
 Request guards for the gateway: API-key auth for the paid-LLM ingest route,
-an in-memory rate limiter and a request body cap.
+an in-memory rate limiter, a request body cap and the CORS origin allow-list.
 Everything fails closed when its configuration is missing.
 """
 
@@ -12,7 +12,7 @@ import os
 import threading
 import time
 from collections import deque
-from typing import Callable, Deque, Dict, Optional
+from typing import Callable, Deque, Dict, List, Optional
 
 from fastapi import Header, HTTPException, Request, status
 from fastapi.responses import JSONResponse
@@ -183,3 +183,34 @@ class BodySizeLimitMiddleware:
                                 status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE)
         await response(scope, receive, send)
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+# CORS
+# ──────────────────────────────────────────────────────────────────────────────
+
+def parse_allowed_origins(raw: Optional[str]) -> List[str]:
+    """
+    Parses a comma-separated ALLOWED_ORIGINS value into explicit origins.
+    Fails closed: unset/empty means no cross-origin access, and wildcards or
+    values that are not http(s) origins are dropped.
+    """
+    origins: List[str] = []
+    for item in (raw or "").split(","):
+        origin = item.strip().rstrip("/")
+        if not origin:
+            continue
+        if "*" in origin or not origin.startswith(("https://", "http://")):
+            logger.warning(f"Ignoring invalid CORS origin in ALLOWED_ORIGINS: {origin!r}")
+            continue
+        origins.append(origin)
+    return origins
+
+
+def cors_options(raw_origins: Optional[str]) -> dict:
+    """Keyword arguments for Starlette's CORSMiddleware. No cookies/credentials are used."""
+    return {
+        "allow_origins": parse_allowed_origins(raw_origins),
+        "allow_credentials": False,
+        "allow_methods": ["GET", "POST"],
+        "allow_headers": ["Content-Type", "X-API-Key"],
+    }

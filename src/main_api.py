@@ -55,6 +55,7 @@ except ImportError as e:
 try:
     from src.security.api_guard import (
         BodySizeLimitMiddleware,
+        cors_options,
         enforce_ingest_rate_limit,
         ingest_rate_limiter_from_env,
         listener_rate_limiter_from_env,
@@ -65,6 +66,7 @@ except ImportError as e:
     logging.warning(f"[SYSTEM] Absolute api_guard import failed ({e}). Attempting relative import.")
     from security.api_guard import (
         BodySizeLimitMiddleware,
+        cors_options,
         enforce_ingest_rate_limit,
         ingest_rate_limiter_from_env,
         listener_rate_limiter_from_env,
@@ -253,13 +255,9 @@ app = FastAPI(title="Aegis-Omni Sovereign Gateway", version="2.0.0", lifespan=li
 app.state.ingest_limiter = ingest_rate_limiter_from_env()
 app.add_middleware(BodySizeLimitMiddleware, max_bytes=max_body_bytes_from_env())
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], # Tighten this up for production, but leave wide open for initial deployment
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Explicit origin allow-list from ALLOWED_ORIGINS (comma-separated). Unset means no
+# cross-origin browser access; '*' is never accepted and no credentials are allowed.
+app.add_middleware(CORSMiddleware, **cors_options(os.getenv("ALLOWED_ORIGINS")))
 
 # ──────────────────────────────────────────────────────────────────────────────
 # WEBSOCKET CONNECTION MANAGER
