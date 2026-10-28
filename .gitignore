@@ -3,6 +3,11 @@
 .env
 .env.local
 .env.*
+!.env.example
+
+# Firebase Admin service-account keys
+serviceAccountKey.json
+*serviceAccount*.json
 
 # Logs and temporary files
 *.log
