@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'triage_tracking_screen.dart';
 
@@ -38,6 +39,7 @@ class _CrisisSubmissionScreenState extends State<CrisisSubmissionScreen> {
         "latitude": 24.8922,
         "longitude": 67.0747,
         "timestamp": FieldValue.serverTimestamp(),
+        "reporter_uid": FirebaseAuth.instance.currentUser?.uid,
       });
 
       debugPrint("📡 AEGIS: Signal accepted! Doc ID: ${docRef.id}. Navigating to Triage...");

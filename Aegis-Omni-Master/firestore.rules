@@ -1,7 +1,58 @@
+rules_version = '2';
+
+// Least-privilege rules for the aegis-ai-omni project.
+//
+// The FastAPI backend (src/main_api.py) uses the Firebase Admin SDK, which
+// bypasses these rules. They only govern the Flutter clients that talk to
+// Firestore directly. Any path not matched below is denied.
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Set with the Admin SDK: auth.set_custom_user_claims(uid, {"admin": True})
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    function optionalNumberInRange(d, field, lo, hi) {
+      return !(field in d) || (d[field] is number && d[field] >= lo && d[field] <= hi);
+    }
+
+    // Shape written by frontend_mobile CrisisSubmissionScreen. Status/AI fields
+    // (processed_by_ai, ai_classification, ai_dispatches, ...) are server-only,
+    // so a client cannot forge a processed result.
+    function isValidCitizenReport() {
+      let d = request.resource.data;
+      return signedIn()
+        && d.keys().hasAll(['text', 'status', 'timestamp', 'reporter_uid'])
+        && d.keys().hasOnly(['text', 'precipitation', 'status', 'latitude',
+                             'longitude', 'timestamp', 'reporter_uid'])
+        && d.reporter_uid == request.auth.uid
+        && d.status == 'PENDING'
+        && d.text is string && d.text.size() > 0 && d.text.size() <= 2000
+        && d.timestamp == request.time
+        && optionalNumberInRange(d, 'precipitation', 0, 1000)
+        && optionalNumberInRange(d, 'latitude', -90, 90)
+        && optionalNumberInRange(d, 'longitude', -180, 180);
+    }
+
+    match /crisis_reports/{reportId} {
+      // Public live feed: the citizen chatbot and triage tracker (frontend_mobile)
+      // and the command center (frontend_admin) read it without signing in.
+      allow read: if true;
+      allow create: if isAdmin() || isValidCitizenReport();
+      // Admin overrides (frontend_admin FirestoreOverrideService). The AI
+      // writeback happens server-side through the Admin SDK.
+      allow update: if isAdmin();
+    }
+
+    // Volunteer applications hold PII (name, CNIC). No reachable client screen
+    // needs them, so only admins may read or write.
+    match /sentinel_applications/{applicationId} {
+      allow read, write: if isAdmin();
     }
   }
 }
